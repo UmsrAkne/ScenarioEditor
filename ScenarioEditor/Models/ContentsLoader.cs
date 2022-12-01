@@ -14,13 +14,13 @@ namespace ScenarioEditor.Models
         {
             if (!Directory.Exists(baseDirectoryPath))
             {
-                throw new ArgumentException();
+                throw new DirectoryNotFoundException();
             }
 
             baseDirectoryInfo = new DirectoryInfo(baseDirectoryPath);
         }
 
-        public XmlDocument ScenarioXml { get; set; }
+        public XmlDocument ScenarioXml { get; private set; }
 
         public void LoadScenario()
         {
@@ -36,6 +36,8 @@ namespace ScenarioEditor.Models
                 Console.WriteLine(e);
                 throw;
             }
+
+            ScenarioXml = doc;
         }
     }
 }
