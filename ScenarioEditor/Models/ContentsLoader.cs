@@ -10,7 +10,7 @@ namespace ScenarioEditor.Models
     {
         private const string TextDirectoryName = "texts";
         private const string VoiceDirectoryName = "voices";
-        private const string imageDirectoryName = "images";
+        private const string ImageDirectoryName = "images";
 
         private readonly DirectoryInfo baseDirectoryInfo;
 
@@ -54,7 +54,7 @@ namespace ScenarioEditor.Models
 
         public void LoadImageFileList()
         {
-            var imageDirectoryInfo = new DirectoryInfo($@"{baseDirectoryInfo.FullName}\{imageDirectoryName}");
+            var imageDirectoryInfo = new DirectoryInfo($@"{baseDirectoryInfo.FullName}\{ImageDirectoryName}");
 
             ImageFileInfos = imageDirectoryInfo.GetFiles()
                 .Where(info => string.Compare(info.Extension, ".png", StringComparison.OrdinalIgnoreCase) == 0)
