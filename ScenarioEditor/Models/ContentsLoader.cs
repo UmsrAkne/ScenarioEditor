@@ -34,20 +34,7 @@ namespace ScenarioEditor.Models
 
         public void LoadScenario()
         {
-            var xmlDocumentPath = $@"{baseDirectoryInfo.FullName}\{TextDirectoryName}\scenario.xml";
-
-            var doc = new XmlDocument();
-            try
-            {
-                doc.Load(xmlDocumentPath);
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e);
-                throw;
-            }
-
-            ScenarioXml = doc;
+            ScenarioXml = LoadXml($@"{baseDirectoryInfo.FullName}\{TextDirectoryName}\scenario.xml");
         }
 
         public void LoadSetting()
