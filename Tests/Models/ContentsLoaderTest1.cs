@@ -8,19 +8,25 @@ namespace Tests.Models
     {
         private readonly string testDirectoryName = "TestDirectory";
         private readonly string textDirectoryName = "texts";
+        private readonly string imageDirectoryName = "images";
 
         [SetUp]
         public void Setup()
         {
             Directory.CreateDirectory(testDirectoryName);
             Directory.CreateDirectory($@"{testDirectoryName}\{textDirectoryName}");
+            Directory.CreateDirectory($@"{testDirectoryName}\{imageDirectoryName}");
 
             var fs = File.CreateText($@"{testDirectoryName}\{textDirectoryName}\scenario.xml");
             fs.WriteLine("<root>");
             fs.WriteLine("<scenario><text string=\"テストテキスト\" /></scenario>");
             fs.WriteLine("</root>");
-
             fs.Close();
+
+            var imageDirectoryPath = $@"{testDirectoryName}\{imageDirectoryName}";
+            File.Create($@"{imageDirectoryPath}\A0101.png").Close();
+            File.Create($@"{imageDirectoryPath}\B0101.png").Close();
+            File.Create($@"{imageDirectoryPath}\C0101.png").Close();
         }
 
         [TearDown]
@@ -28,7 +34,13 @@ namespace Tests.Models
         {
             File.Delete($@"{testDirectoryName}\{textDirectoryName}\scenario.xml");
 
+            var imageDirectoryPath = $@"{testDirectoryName}\{imageDirectoryName}";
+            File.Delete($@"{imageDirectoryPath}\A0101.png");
+            File.Delete($@"{imageDirectoryPath}\B0101.png");
+            File.Delete($@"{imageDirectoryPath}\C0101.png");
+
             Directory.Delete($@"{testDirectoryName}\{textDirectoryName}");
+            Directory.Delete($@"{testDirectoryName}\{imageDirectoryName}");
             Directory.Delete(testDirectoryName);
         }
 
@@ -65,6 +77,17 @@ namespace Tests.Models
             File.Delete($@"{voiceDirectoryPath}\03.OGG");
             File.Delete($@"{voiceDirectoryPath}\04.Ogg");
             Directory.Delete(voiceDirectoryPath);
+        }
+
+        [Test]
+        public void 画像ファイルリストの取得テスト()
+        {
+            var loader = new ContentsLoader(testDirectoryName);
+            Assert.IsNull(loader.ImageFileInfos);
+
+            loader.LoadImageFileList();
+            Assert.NotNull(loader.ImageFileInfos);
+            Assert.AreEqual(3, loader.ImageFileInfos.Count);
         }
     }
 }
