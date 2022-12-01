@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.32228.343
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ScenarioEditor", "ScenarioEditor\ScenarioEditor.csproj", "{CA3D69A0-BA50-4289-81B7-B6A52F898D3D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Tests", "Tests\Tests.csproj", "{2C574436-5A10-4F82-A141-276D1AFA388A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{CA3D69A0-BA50-4289-81B7-B6A52F898D3D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CA3D69A0-BA50-4289-81B7-B6A52F898D3D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CA3D69A0-BA50-4289-81B7-B6A52F898D3D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2C574436-5A10-4F82-A141-276D1AFA388A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2C574436-5A10-4F82-A141-276D1AFA388A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2C574436-5A10-4F82-A141-276D1AFA388A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2C574436-5A10-4F82-A141-276D1AFA388A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
