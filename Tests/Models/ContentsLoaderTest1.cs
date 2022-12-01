@@ -23,6 +23,12 @@ namespace Tests.Models
             fs.WriteLine("</root>");
             fs.Close();
 
+            var settingFs = File.CreateText($@"{testDirectoryName}\{textDirectoryName}\setting.xml");
+            settingFs.WriteLine("<setting>");
+            settingFs.WriteLine("<bgm volume=\"0.5\" />");
+            settingFs.WriteLine("</setting>");
+            settingFs.Close();
+
             var imageDirectoryPath = $@"{testDirectoryName}\{imageDirectoryName}";
             File.Create($@"{imageDirectoryPath}\A0101.png").Close();
             File.Create($@"{imageDirectoryPath}\B0101.png").Close();
@@ -33,6 +39,7 @@ namespace Tests.Models
         public void TearDown()
         {
             File.Delete($@"{testDirectoryName}\{textDirectoryName}\scenario.xml");
+            File.Delete($@"{testDirectoryName}\{textDirectoryName}\setting.xml");
 
             var imageDirectoryPath = $@"{testDirectoryName}\{imageDirectoryName}";
             File.Delete($@"{imageDirectoryPath}\A0101.png");
@@ -88,6 +95,16 @@ namespace Tests.Models
             loader.LoadImageFileList();
             Assert.NotNull(loader.ImageFileInfos);
             Assert.AreEqual(3, loader.ImageFileInfos.Count);
+        }
+
+        [Test]
+        public void 設定ファイルの読み込みテスト()
+        {
+            var loader = new ContentsLoader(testDirectoryName);
+            Assert.IsNull(loader.SettingXml);
+
+            loader.LoadSetting();
+            Assert.NotNull(loader.SettingXml);
         }
     }
 }
