@@ -1,5 +1,7 @@
 using System;
+using System.Collections.Generic;
 using System.IO;
+using System.Linq;
 using System.Xml;
 
 namespace ScenarioEditor.Models
@@ -7,6 +9,7 @@ namespace ScenarioEditor.Models
     public class ContentsLoader
     {
         private const string TextDirectoryName = "texts";
+        private const string VoiceDirectoryName = "voices";
 
         private readonly DirectoryInfo baseDirectoryInfo;
 
@@ -21,6 +24,8 @@ namespace ScenarioEditor.Models
         }
 
         public XmlDocument ScenarioXml { get; private set; }
+
+        public List<FileInfo> VoiceFileInfos { get; private set; }
 
         public void LoadScenario()
         {
@@ -38,6 +43,16 @@ namespace ScenarioEditor.Models
             }
 
             ScenarioXml = doc;
+        }
+
+        public void LoadVoiceFileList()
+        {
+            var voiceDirectoryInfo = new DirectoryInfo($@"{baseDirectoryInfo.FullName}\{VoiceDirectoryName}");
+
+            VoiceFileInfos = voiceDirectoryInfo.GetFiles()
+                .Where(info => string.Compare(info.Extension, ".ogg", StringComparison.OrdinalIgnoreCase) == 0)
+                .OrderBy(info => info.Name)
+                .ToList();
         }
     }
 }
