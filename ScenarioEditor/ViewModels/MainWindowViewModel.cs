@@ -1,4 +1,5 @@
 ﻿using Prism.Mvvm;
+using ScenarioEditor.Models;
 
 namespace ScenarioEditor.ViewModels
 {
@@ -11,5 +12,14 @@ namespace ScenarioEditor.ViewModels
         }
 
         public string Title { get => title; set => SetProperty(ref title, value); }
+
+        public void LoadDirectory(string directoryPath)
+        {
+            var loader = new ContentsLoader(directoryPath);
+            loader.LoadScenario();
+            loader.LoadSetting();
+            loader.LoadImageFileList();
+            loader.LoadVoiceFileList();
+        }
     }
 }
