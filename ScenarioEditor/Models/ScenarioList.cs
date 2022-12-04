@@ -12,9 +12,23 @@ namespace ScenarioEditor.Models
 
         public void Load(XDocument doc)
         {
-            var scenarioElements = doc.Descendants("scenario");
-            Scenarios = new ObservableCollection<Scenario>(
-                scenarioElements.Select(scn => new Scenario(scn)));
+            const string scenarioElementName = "scenario";
+            var scenarioElements = doc.Descendants(scenarioElementName).ToList();
+
+            const string scenarioElementAlias = "scn";
+            var scnElements = doc.Descendants(scenarioElementAlias).ToList();
+
+            if (scenarioElements.Count() != 0)
+            {
+                Scenarios = new ObservableCollection<Scenario>(
+                    scenarioElements.Select(scn => new Scenario(scn)));
+            }
+
+            if (scnElements.Count() != 0)
+            {
+                Scenarios = new ObservableCollection<Scenario>(
+                    scnElements.Select(scn => new Scenario(scn)));
+            }
 
             RaisePropertyChanged(nameof(Scenarios));
         }

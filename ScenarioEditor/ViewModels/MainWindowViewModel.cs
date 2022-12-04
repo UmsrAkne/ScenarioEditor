@@ -23,6 +23,9 @@ namespace ScenarioEditor.ViewModels
             loader.LoadSetting();
             loader.LoadImageFileList();
             loader.LoadVoiceFileList();
+
+            ScenarioList = new ScenarioList();
+            ScenarioList.Load(loader.ScenarioXml);
         }
     }
 }
