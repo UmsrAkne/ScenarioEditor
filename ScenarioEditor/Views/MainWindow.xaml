@@ -31,7 +31,10 @@
             <MenuItem Header="File" />
         </Menu>
 
-        <ListView Grid.Row="1" VerticalAlignment="Stretch" />
+        <ListView
+            Grid.Row="1"
+            VerticalAlignment="Stretch"
+            ItemsSource="{Binding ScenarioList.Scenarios}" />
 
         <StackPanel Grid.Row="2" />
     </Grid>
