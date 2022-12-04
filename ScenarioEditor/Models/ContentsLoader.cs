@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Xml;
+using System.Xml.Linq;
 
 namespace ScenarioEditor.Models
 {
@@ -24,9 +24,9 @@ namespace ScenarioEditor.Models
             baseDirectoryInfo = new DirectoryInfo(baseDirectoryPath);
         }
 
-        public XmlDocument ScenarioXml { get; private set; }
+        public XDocument ScenarioXml { get; private set; }
 
-        public XmlDocument SettingXml { get; private set; }
+        public XDocument SettingXml { get; private set; }
 
         public List<FileInfo> VoiceFileInfos { get; private set; }
 
@@ -62,12 +62,12 @@ namespace ScenarioEditor.Models
                 .ToList();
         }
 
-        private XmlDocument LoadXml(string targetFilePath)
+        private XDocument LoadXml(string targetFilePath)
         {
-            var doc = new XmlDocument();
+            XDocument doc;
             try
             {
-                doc.Load(targetFilePath);
+                doc = XDocument.Load(targetFilePath);
             }
             catch (Exception e)
             {
