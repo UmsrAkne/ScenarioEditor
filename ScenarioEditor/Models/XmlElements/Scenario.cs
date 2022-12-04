@@ -1,3 +1,4 @@
+using System.Xml.Linq;
 using System.Xml.Serialization;
 
 namespace ScenarioEditor.Models.XmlElements
@@ -5,13 +6,23 @@ namespace ScenarioEditor.Models.XmlElements
     [XmlRoot("scenario")]
     public class Scenario
     {
-        [XmlElement("voice")]
-        public string Voice { get; set; }
+        public Scenario(XElement scenarioElement)
+        {
+            Voice = new Voice(scenarioElement);
+            Text = new Text(scenarioElement);
+            Image = new Image(scenarioElement);
+        }
 
-        [XmlElement("text")]
-        public string Text { get; set; }
+        public Scenario()
+        {
+        }
 
-        [XmlElement("image")]
-        public string Image { get; set; }
+        public string ElementName => "scenario";
+
+        public Voice Voice { get; set; }
+
+        public Text Text { get; set; }
+
+        public Image Image { get; set; }
     }
 }
