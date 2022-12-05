@@ -1,0 +1,18 @@
+<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:xmlElements="clr-namespace:ScenarioEditor.Models.XmlElements">
+
+    <DataTemplate x:Key="ListViewDateTemplate" DataType="{x:Type xmlElements:Scenario}">
+        <StackPanel Orientation="Horizontal">
+
+            <TextBlock
+                Width="50"
+                Text="Voice"
+                TextTrimming="CharacterEllipsis" />
+
+            <TextBlock Width="100" Text="{Binding Text.Str}" />
+        </StackPanel>
+    </DataTemplate>
+
+</ResourceDictionary>

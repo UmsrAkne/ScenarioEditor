@@ -16,6 +16,14 @@
     AllowDrop="True"
     mc:Ignorable="d">
 
+    <Window.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="ListViewResource.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </Window.Resources>
+
     <i:Interaction.Behaviors>
         <models:DropBehavior />
     </i:Interaction.Behaviors>
@@ -34,6 +42,7 @@
         <ListView
             Grid.Row="1"
             VerticalAlignment="Stretch"
+            ItemTemplate="{StaticResource ListViewDateTemplate}"
             ItemsSource="{Binding ScenarioList.Scenarios}" />
 
         <StackPanel Grid.Row="2" />
