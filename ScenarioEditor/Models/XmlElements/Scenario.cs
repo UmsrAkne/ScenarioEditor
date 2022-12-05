@@ -1,3 +1,4 @@
+using System.Linq;
 using System.Xml.Linq;
 using System.Xml.Serialization;
 
@@ -11,6 +12,7 @@ namespace ScenarioEditor.Models.XmlElements
             Voice = new Voice(scenarioElement);
             Text = new Text(scenarioElement);
             Image = new Image(scenarioElement);
+            Ignore = scenarioElement.Descendants("ignore").Any();
         }
 
         public Scenario()
@@ -24,5 +26,7 @@ namespace ScenarioEditor.Models.XmlElements
         public Text Text { get; set; }
 
         public Image Image { get; set; }
+
+        public bool Ignore { get; set; }
     }
 }

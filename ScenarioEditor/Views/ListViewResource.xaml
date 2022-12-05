@@ -6,6 +6,16 @@
     <DataTemplate x:Key="ListViewDateTemplate" DataType="{x:Type xmlElements:Scenario}">
         <StackPanel Orientation="Horizontal">
 
+            <StackPanel.Style>
+                <Style TargetType="StackPanel">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Ignore}" Value="True">
+                            <Setter Property="Opacity" Value="0.4" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </StackPanel.Style>
+
             <TextBlock Width="50" TextTrimming="CharacterEllipsis">
                 <TextBlock.Style>
                     <Style TargetType="TextBlock">
