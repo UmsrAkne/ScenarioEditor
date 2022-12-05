@@ -61,6 +61,55 @@
                 <TextBox Text="{Binding ScenarioList.SelectedItem.Text.Str}" />
             </DockPanel>
 
+            <StackPanel Orientation="Horizontal">
+                <StackPanel.Style>
+                    <Style TargetType="StackPanel">
+                        <Style.Triggers>
+                            <DataTrigger Binding="{Binding ScenarioList.SelectedItem.Image.IsDefault}" Value="True">
+                                <Setter Property="Visibility" Value="Collapsed" />
+                            </DataTrigger>
+                        </Style.Triggers>
+                    </Style>
+                </StackPanel.Style>
+
+                <StackPanel.Resources>
+                    <Style TargetType="TextBox">
+                        <Setter Property="MinWidth" Value="60" />
+                        <Setter Property="Margin" Value="2,0,12,0" />
+                    </Style>
+                </StackPanel.Resources>
+
+                <TextBlock Text="Image :" />
+
+                <Border Margin="5,0" />
+                <!--  ただの仕切り  -->
+
+                <TextBlock Text="a = " />
+                <TextBox Text="{Binding ScenarioList.SelectedItem.Image.A}" />
+
+                <TextBlock Text="b = " />
+                <TextBox Text="{Binding ScenarioList.SelectedItem.Image.B}" />
+
+                <TextBlock Text="c = " />
+                <TextBox Text="{Binding ScenarioList.SelectedItem.Image.C}" />
+
+                <TextBlock Text="d = " />
+                <TextBox Text="{Binding ScenarioList.SelectedItem.Image.D}" />
+
+                <TextBlock Text="scale = " />
+                <TextBox Text="{Binding ScenarioList.SelectedItem.Image.Scale}" />
+
+                <TextBlock Text="target = " />
+                <TextBox Text="{Binding ScenarioList.SelectedItem.Image.Target}" />
+
+                <TextBlock Text="x = " />
+                <TextBox Text="{Binding ScenarioList.SelectedItem.Image.X}" />
+
+                <TextBlock Text="y = " />
+                <TextBox Text="{Binding ScenarioList.SelectedItem.Image.Y}" />
+
+            </StackPanel>
+
         </StackPanel>
     </Grid>
 </Window>
