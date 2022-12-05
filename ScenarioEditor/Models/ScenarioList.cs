@@ -8,7 +8,11 @@ namespace ScenarioEditor.Models
 {
     public class ScenarioList : BindableBase
     {
+        private Scenario selectedItem;
+
         public ObservableCollection<Scenario> Scenarios { get; set; }
+
+        public Scenario SelectedItem { get => selectedItem; set => SetProperty(ref selectedItem, value); }
 
         public void Load(XDocument doc)
         {

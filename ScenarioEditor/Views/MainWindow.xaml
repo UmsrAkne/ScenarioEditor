@@ -43,8 +43,24 @@
             Grid.Row="1"
             VerticalAlignment="Stretch"
             ItemTemplate="{StaticResource ListViewDateTemplate}"
-            ItemsSource="{Binding ScenarioList.Scenarios}" />
+            ItemsSource="{Binding ScenarioList.Scenarios}"
+            SelectedItem="{Binding ScenarioList.SelectedItem}" />
 
-        <StackPanel Grid.Row="2" />
+        <StackPanel Grid.Row="2">
+
+            <DockPanel>
+                <TextBlock Text="Voice = " />
+                <TextBlock Text="{Binding ScenarioList.SelectedItem.Voice.Name}" />
+
+                <Border
+                    Width="1"
+                    Margin="5,0"
+                    Background="Black" />
+
+                <TextBlock Text="Text = " />
+                <TextBox Text="{Binding ScenarioList.SelectedItem.Text.Str}" />
+            </DockPanel>
+
+        </StackPanel>
     </Grid>
 </Window>

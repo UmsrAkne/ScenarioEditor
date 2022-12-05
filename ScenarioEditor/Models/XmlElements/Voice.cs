@@ -43,6 +43,19 @@ namespace ScenarioEditor.Models.XmlElements
 
         public bool IsDefault => FileName == string.Empty && Number == 0;
 
+        public string Name
+        {
+            get
+            {
+                if (FileName != string.Empty)
+                {
+                    return FileName;
+                }
+
+                return Number != 0 ? Number.ToString() : string.Empty;
+            }
+        }
+
         private string NumberAttribute { get; } = "number";
 
         private string FileNameAttribute { get; } = "fileName";
