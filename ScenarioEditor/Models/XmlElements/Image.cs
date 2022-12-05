@@ -61,6 +61,8 @@ namespace ScenarioEditor.Models.XmlElements
 
         public string Target { get; set; } = "main";
 
+        public bool IsDefault => A + B + C + D == string.Empty;
+
         private string AAttribute => "a";
 
         private string BAttribute => "b";
