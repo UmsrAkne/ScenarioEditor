@@ -1,3 +1,4 @@
+using System;
 using System.Xml.Linq;
 using System.Xml.Serialization;
 
@@ -39,6 +40,8 @@ namespace ScenarioEditor.Models.XmlElements
         public string FileName { get; set; } = string.Empty;
 
         public string ElementName { get; } = "voice";
+
+        public bool IsDefault => FileName == string.Empty && Number == 0;
 
         private string NumberAttribute { get; } = "number";
 
