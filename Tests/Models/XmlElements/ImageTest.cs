@@ -42,5 +42,25 @@ namespace Tests.Models.XmlElements
             // Image要素を含まない場合も例外が出ないか確認
             var _ = new Image(XElement.Parse("<scenario></scenario>"));
         }
+
+        [Test]
+        public void ToStringのテスト()
+        {
+            var xmlText = "<scenario>" +
+                          "<image " +
+                          "a=\"imageA\" b=\"imageB\" c=\"imageC\" d=\"imageD\" " +
+                          "x=\"100\" y=\"200\" " +
+                          "scale=\"1.5\" target=\"front\" />" +
+                          "</scenario>";
+
+            Assert.AreEqual(
+                "<image a=\"imageA\" b=\"imageB\" c=\"imageC\" d=\"imageD\" scale=\"1.5\" x=\"100\" y=\"200\" target=\"front\" />",
+                new Image(new XElement(XElement.Parse(xmlText))).ToString()
+            );
+
+            // Image の情報が無い場合は 空文字が返る
+            Assert.AreEqual(string.Empty, new Image(XElement.Parse("<scenario></scenario>")).ToString());
+            Assert.AreEqual(string.Empty, new Image().ToString());
+        }
     }
 }

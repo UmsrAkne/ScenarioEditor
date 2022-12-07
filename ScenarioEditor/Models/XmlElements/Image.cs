@@ -78,5 +78,23 @@ namespace ScenarioEditor.Models.XmlElements
         private string YAttribute => "y";
 
         private string TargetAttribute => "target";
+
+        public override string ToString()
+        {
+            if (IsDefault)
+            {
+                return string.Empty;
+            }
+
+            return $"<image " +
+                   $"{AAttribute}=\"{A}\" " +
+                   $"{BAttribute}=\"{B}\" " +
+                   $"{CAttribute}=\"{C}\" " +
+                   $"{DAttribute}=\"{D}\" " +
+                   $"{ScaleAttribute}=\"{Scale}\" " +
+                   $"{XAttribute}=\"{X}\" " +
+                   $"{YAttribute}=\"{Y}\" " +
+                   $"{TargetAttribute}=\"{Target}\" " + $"/>";
+        }
     }
 }

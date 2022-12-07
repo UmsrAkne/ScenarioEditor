@@ -1,4 +1,3 @@
-using System;
 using System.Xml.Linq;
 using System.Xml.Serialization;
 
@@ -59,5 +58,20 @@ namespace ScenarioEditor.Models.XmlElements
         private string NumberAttribute { get; } = "number";
 
         private string FileNameAttribute { get; } = "fileName";
+
+        public override string ToString()
+        {
+            if (FileName != string.Empty)
+            {
+                return $"<{ElementName} {FileNameAttribute}=\"{FileName}\" />";
+            }
+
+            if (Number != 0)
+            {
+                return $"<{ElementName} {NumberAttribute}=\"{Number}\" />";
+            }
+
+            return $"<{ElementName} {NumberAttribute}=\"0\" />";
+        }
     }
 }
