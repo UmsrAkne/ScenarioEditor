@@ -10,7 +10,7 @@ namespace Tests.Models.XmlElements
         [Test]
         public void Voiceのデフォルトコンストラクタのテスト()
         {
-            var v = new Voice();
+            var _ = new Voice();
         }
 
         [Test]

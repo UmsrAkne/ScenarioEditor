@@ -10,7 +10,7 @@ namespace Tests.Models.XmlElements
         [Test]
         public void デフォルトコンストラクタのテスト()
         {
-            var t = new Text();
+            var _ = new Text();
         }
 
         [Test]
