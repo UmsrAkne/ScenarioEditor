@@ -71,6 +71,7 @@
     <Compile Include="Models\ScenarioList.cs" />
     <Compile Include="Models\XmlElements\Image.cs" />
     <Compile Include="Models\XmlElements\Scenario.cs" />
+    <Compile Include="Models\XmlElements\Se.cs" />
     <Compile Include="Models\XmlElements\Text.cs" />
     <Compile Include="Models\XmlElements\Voice.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
