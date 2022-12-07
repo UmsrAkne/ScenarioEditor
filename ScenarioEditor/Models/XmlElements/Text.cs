@@ -35,5 +35,10 @@ namespace ScenarioEditor.Models.XmlElements
         private string StrAttribute { get; } = "str";
 
         private string StringAttribute { get; } = "string";
+
+        public override string ToString()
+        {
+            return $"<text {StrAttribute}=\"{Str}\" />";
+        }
     }
 }
