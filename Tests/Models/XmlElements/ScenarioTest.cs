@@ -28,5 +28,67 @@ namespace Tests.Models.XmlElements
             Assert.NotNull(scenario.Image);
             Assert.NotNull(scenario.Text);
         }
+
+        [Test]
+        public void ToStringのテストImageTagなし()
+        {
+            var scenario = new Scenario
+            {
+                Voice = new Voice(),
+                Text = new Text(),
+                Image = new Image(),
+            };
+
+            scenario.Text.Str = "testText";
+            scenario.Voice.FileName = "testFile";
+
+            Assert.AreEqual(
+                "<scenario><voice fileName=\"testFile\" /><text str=\"testText\" /></scenario>",
+                scenario.ToString()
+                );
+        }
+
+        [Test]
+        public void ToStringのテストImageTagなしIgnoreつき()
+        {
+            var scenario = new Scenario
+            {
+                Voice = new Voice(),
+                Text = new Text(),
+                Image = new Image(),
+            };
+
+            scenario.Text.Str = "testText";
+            scenario.Voice.FileName = "testFile";
+            scenario.Ignore = true;
+
+            Assert.AreEqual(
+                "<scenario><ignore /><voice fileName=\"testFile\" /><text str=\"testText\" /></scenario>",
+                scenario.ToString()
+                );
+        }
+
+
+        [Test]
+        public void ToStringのテストImageTagあり()
+        {
+            var scenario = new Scenario
+            {
+                Voice = new Voice(),
+                Text = new Text(),
+                Image = new Image(),
+            };
+
+            scenario.Text.Str = "testText";
+            scenario.Voice.FileName = "testFile";
+            scenario.Image.A = "imageA";
+
+            Assert.AreEqual(
+                "<scenario><voice fileName=\"testFile\" /><text str=\"testText\" />\r\n" +
+                "\t<image a=\"imageA\" b=\"\" c=\"\" d=\"\" scale=\"1\" x=\"0\" y=\"0\" target=\"main\" />\r\n" +
+                "</scenario>",
+                scenario.ToString()
+                );
+        }
     }
 }
