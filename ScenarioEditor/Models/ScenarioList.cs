@@ -1,6 +1,10 @@
+using System;
 using System.Collections.ObjectModel;
 using System.Linq;
+using System.Text;
+using System.Windows;
 using System.Xml.Linq;
+using Prism.Commands;
 using Prism.Mvvm;
 using ScenarioEditor.Models.XmlElements;
 
@@ -13,6 +17,22 @@ namespace ScenarioEditor.Models
         public ObservableCollection<Scenario> Scenarios { get; set; }
 
         public Scenario SelectedItem { get => selectedItem; set => SetProperty(ref selectedItem, value); }
+
+        public ContentsLoader ContentsLoader { get; set; }
+
+        public DelegateCommand ExportXmlCommand => new DelegateCommand(() =>
+        {
+            var sb = new StringBuilder();
+            sb.AppendLine("<root>");
+
+            foreach (var scn in Scenarios)
+            {
+                sb.AppendLine(scn.ToString());
+            }
+
+            sb.AppendLine("</root>");
+            Clipboard.SetDataObject(sb.ToString());
+        });
 
         public void Load(XDocument doc)
         {

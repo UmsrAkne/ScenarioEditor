@@ -36,7 +36,9 @@
         </Grid.RowDefinitions>
 
         <Menu Grid.Row="0">
-            <MenuItem Header="File" />
+            <MenuItem Header="File">
+                <MenuItem Command="{Binding ScenarioList.ExportXmlCommand}" Header="XMLをクリップボードにコピー" />
+            </MenuItem>
         </Menu>
 
         <ListView

@@ -26,6 +26,7 @@ namespace ScenarioEditor.ViewModels
 
             ScenarioList = new ScenarioList();
             ScenarioList.Load(loader.ScenarioXml);
+            ScenarioList.ContentsLoader = loader;
         }
     }
 }

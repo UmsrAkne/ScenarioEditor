@@ -1,4 +1,6 @@
+using System;
 using System.Linq;
+using System.Text;
 using System.Xml.Linq;
 using System.Xml.Serialization;
 
@@ -28,5 +30,26 @@ namespace ScenarioEditor.Models.XmlElements
         public Image Image { get; set; }
 
         public bool Ignore { get; set; }
+
+        public override string ToString()
+        {
+            var sb = new StringBuilder();
+            sb.Append($"<scenario>");
+
+            if (Ignore)
+            {
+                sb.Append("<ignore />");
+            }
+
+            sb.Append($"{Voice}{Text}");
+
+            if (!Image.IsDefault)
+            {
+                sb.AppendLine($"{Environment.NewLine}\t{Image}");
+            }
+
+            sb.Append("</scenario>");
+            return sb.ToString();
+        }
     }
 }
