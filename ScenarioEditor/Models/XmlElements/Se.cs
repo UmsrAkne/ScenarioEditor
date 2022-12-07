@@ -46,5 +46,20 @@ namespace ScenarioEditor.Models.XmlElements
         public string RepeatCountAttribute => "repeatCount";
 
         public bool IsDefault => FileName == string.Empty && Number == 0;
+
+        public override string ToString()
+        {
+            if (FileName != string.Empty)
+            {
+                return $"<{ElementName} {FileNameAttribute}=\"{FileName}\" {RepeatCountAttribute}=\"{RepeatCount}\" />";
+            }
+
+            if (Number != 0)
+            {
+                return $"<{ElementName} {NumberAttribute}=\"{Number}\" {RepeatCountAttribute}=\"{RepeatCount}\" />";
+            }
+
+            return $"<{ElementName} {NumberAttribute}=\"0\" />";
+        }
     }
 }

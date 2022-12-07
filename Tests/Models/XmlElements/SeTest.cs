@@ -53,5 +53,21 @@ namespace Tests.Models.XmlElements
             var se3 = new Se();
             Assert.IsTrue(se3.IsDefault);
         }
+
+        [Test]
+        public void ToStringのテスト()
+        {
+            var xmlText1 = "<scenario><se number=\"1\" /></scenario>";
+            var xmlText2 = "<scenario><se fileName=\"testName\" /></scenario>";
+            var xmlText3 = "<scenario><se number=\"1\" repeatCount=\"10\" /></scenario>";
+
+            var xml1 = XDocument.Parse(xmlText1).Element("scenario");
+            var xml2 = XDocument.Parse(xmlText2).Element("scenario");
+            var xml3 = XDocument.Parse(xmlText3).Element("scenario");
+
+            Assert.AreEqual("<se number=\"1\" repeatCount=\"0\" />", new Se(xml1).ToString());
+            Assert.AreEqual("<se fileName=\"testName\" repeatCount=\"0\" />", new Se(xml2).ToString());
+            Assert.AreEqual("<se number=\"1\" repeatCount=\"10\" />", new Se(xml3).ToString());
+        }
     }
 }
