@@ -18,6 +18,8 @@ namespace ScenarioEditor.Models
 
         public Scenario SelectedItem { get => selectedItem; set => SetProperty(ref selectedItem, value); }
 
+        public ContentsLoader ContentsLoader { get; set; }
+
         public DelegateCommand ExportXmlCommand => new DelegateCommand(() =>
         {
             var sb = new StringBuilder();
