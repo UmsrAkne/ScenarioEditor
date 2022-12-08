@@ -3,6 +3,7 @@
     xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
     xmlns:xmlElements="clr-namespace:ScenarioEditor.Models.XmlElements">
 
+    <!--  シナリオを表示するリストビュー用のデータテンプレート  -->
     <DataTemplate x:Key="ListViewDateTemplate" DataType="{x:Type xmlElements:Scenario}">
         <StackPanel Orientation="Horizontal">
 
@@ -29,6 +30,59 @@
             </TextBlock>
 
             <TextBlock Width="100" Text="{Binding Text.Str}" />
+        </StackPanel>
+    </DataTemplate>
+
+    <!--  描画画像の情報を表示するリストビューのデータテンプレート  -->
+    <DataTemplate x:Key="ImageTagListViewDataTemplate" DataType="{x:Type xmlElements:Image}">
+        <StackPanel Orientation="Horizontal">
+
+            <StackPanel.Style>
+                <Style TargetType="StackPanel">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsDefault}" Value="True">
+                            <Setter Property="Visibility" Value="Collapsed" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </StackPanel.Style>
+
+            <StackPanel.Resources>
+                <Style TargetType="TextBox">
+                    <Setter Property="MinWidth" Value="60" />
+                    <Setter Property="Margin" Value="2,0,12,0" />
+                </Style>
+            </StackPanel.Resources>
+
+            <TextBlock Text="Image :" />
+
+            <Border Margin="5,0" />
+            <!--  ただの仕切り  -->
+
+            <TextBlock Text="a = " />
+            <TextBox Text="{Binding A}" />
+
+            <TextBlock Text="b = " />
+            <TextBox Text="{Binding B}" />
+
+            <TextBlock Text="c = " />
+            <TextBox Text="{Binding C}" />
+
+            <TextBlock Text="d = " />
+            <TextBox Text="{Binding D}" />
+
+            <TextBlock Text="scale = " />
+            <TextBox Text="{Binding Scale}" />
+
+            <TextBlock Text="target = " />
+            <TextBox Text="{Binding Target}" />
+
+            <TextBlock Text="x = " />
+            <TextBox Text="{Binding X}" />
+
+            <TextBlock Text="y = " />
+            <TextBox Text="{Binding Y}" />
+
         </StackPanel>
     </DataTemplate>
 
