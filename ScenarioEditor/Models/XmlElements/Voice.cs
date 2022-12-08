@@ -1,11 +1,15 @@
 using System.Xml.Linq;
 using System.Xml.Serialization;
+using Prism.Mvvm;
 
 namespace ScenarioEditor.Models.XmlElements
 {
     [XmlRoot("voice")]
-    public class Voice
+    public class Voice : BindableBase
     {
+        private string fileName = string.Empty;
+        private int number;
+
         public Voice()
         {
         }
@@ -33,10 +37,10 @@ namespace ScenarioEditor.Models.XmlElements
         }
 
         [XmlAttribute("number")]
-        public int Number { get; set; }
+        public int Number { get => number; set => SetProperty(ref number, value); }
 
         [XmlAttribute("fileName")]
-        public string FileName { get; set; } = string.Empty;
+        public string FileName { get => fileName; set => SetProperty(ref fileName, value); }
 
         public string ElementName { get; } = "voice";
 
