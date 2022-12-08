@@ -1,3 +1,4 @@
+using System.Linq;
 using System.Xml.Linq;
 using NUnit.Framework;
 using ScenarioEditor.Models.XmlElements;
@@ -25,8 +26,8 @@ namespace Tests.Models.XmlElements
             var scenario = new Scenario(XElement.Parse(xmlText));
 
             Assert.NotNull(scenario.Voice);
-            Assert.NotNull(scenario.Image);
             Assert.NotNull(scenario.Text);
+            Assert.AreEqual(1,scenario.Images.Count);
         }
 
         [Test]
@@ -34,13 +35,9 @@ namespace Tests.Models.XmlElements
         {
             var scenario = new Scenario
             {
-                Voice = new Voice(),
-                Text = new Text(),
-                Image = new Image(),
+                Voice = new Voice() { FileName = "testFile" },
+                Text = new Text { Str = "testText" },
             };
-
-            scenario.Text.Str = "testText";
-            scenario.Voice.FileName = "testFile";
 
             Assert.AreEqual(
                 "<scenario><voice fileName=\"testFile\" /><text str=\"testText\" /></scenario>",
@@ -53,13 +50,10 @@ namespace Tests.Models.XmlElements
         {
             var scenario = new Scenario
             {
-                Voice = new Voice(),
-                Text = new Text(),
-                Image = new Image(),
+                Voice = new Voice() { FileName = "testFile" },
+                Text = new Text { Str = "testText" },
             };
 
-            scenario.Text.Str = "testText";
-            scenario.Voice.FileName = "testFile";
             scenario.Ignore = true;
 
             Assert.AreEqual(
@@ -74,14 +68,12 @@ namespace Tests.Models.XmlElements
         {
             var scenario = new Scenario
             {
-                Voice = new Voice(),
-                Text = new Text(),
-                Image = new Image(),
+                Voice = new Voice() { FileName = "testFile" },
+                Text = new Text { Str = "testText" },
             };
 
-            scenario.Text.Str = "testText";
-            scenario.Voice.FileName = "testFile";
-            scenario.Image.A = "imageA";
+            scenario.Images.Add(new Image());
+            scenario.Images.First().A = "imageA";
 
             Assert.AreEqual(
                 "<scenario><voice fileName=\"testFile\" /><text str=\"testText\" />\r\n" +

@@ -1,19 +1,23 @@
 using System;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Xml.Linq;
 using System.Xml.Serialization;
+using Prism.Mvvm;
 
 namespace ScenarioEditor.Models.XmlElements
 {
     [XmlRoot("scenario")]
-    public class Scenario
+    public class Scenario : BindableBase
     {
+        private ObservableCollection<Image> images = new ObservableCollection<Image>();
+
         public Scenario(XElement scenarioElement)
         {
             Voice = new Voice(scenarioElement);
             Text = new Text(scenarioElement);
-            Image = new Image(scenarioElement);
+            Images.Add(new Image(scenarioElement));
             Ignore = scenarioElement.Descendants("ignore").Any();
         }
 
@@ -27,7 +31,7 @@ namespace ScenarioEditor.Models.XmlElements
 
         public Text Text { get; set; }
 
-        public Image Image { get; set; }
+        public ObservableCollection<Image> Images { get => images; set => SetProperty(ref images, value); }
 
         public bool Ignore { get; set; }
 
@@ -43,9 +47,12 @@ namespace ScenarioEditor.Models.XmlElements
 
             sb.Append($"{Voice}{Text}");
 
-            if (!Image.IsDefault)
+            if (Images.Any(i => !i.IsDefault))
             {
-                sb.AppendLine($"{Environment.NewLine}\t{Image}");
+                foreach (var i in Images)
+                {
+                    sb.AppendLine($"{Environment.NewLine}\t{i}");
+                }
             }
 
             sb.Append("</scenario>");
