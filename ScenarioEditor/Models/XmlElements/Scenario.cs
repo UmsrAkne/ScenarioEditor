@@ -1,5 +1,7 @@
 using System;
+using System.Collections.Generic;
 using System.Collections.ObjectModel;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Xml.Linq;
@@ -41,7 +43,27 @@ namespace ScenarioEditor.Models.XmlElements
 
         public ObservableCollection<Draw> Draws { get => draws; set => SetProperty(ref draws, value); }
 
+        public List<string> Urls { get; set; }
+
         public bool Ignore { get; set; }
+
+        public void UpdateUrls(ContentsLoader loader)
+        {
+            var img = Images.First();
+            Urls = new List<string> { img.A, img.B, img.C, img.D }.Where(s => s != string.Empty).ToList();
+            var list = new List<string>();
+
+            foreach (var url in Urls)
+            {
+                var file = loader.ImageFileInfos.FirstOrDefault(f => Path.GetFileNameWithoutExtension(f.Name) == url);
+                if (file != null)
+                {
+                    list.Add(file.FullName);
+                }
+            }
+
+            Urls = list;
+        }
 
         public override string ToString()
         {

@@ -17,6 +17,26 @@
                 </Style>
             </StackPanel.Style>
 
+            <!--  画像を表示するためのリストボックス シナリオを表示するためのリスト一行に一つ展開する  -->
+            <ListBox
+                Background="Transparent"
+                BorderThickness="0"
+                ItemsSource="{Binding Urls}">
+
+                <ListBox.ItemTemplate>
+                    <DataTemplate>
+                        <Image Source="{Binding}" />
+                    </DataTemplate>
+                </ListBox.ItemTemplate>
+
+                <ListBox.ItemsPanel>
+                    <ItemsPanelTemplate>
+                        <Grid Width="150" />
+                    </ItemsPanelTemplate>
+                </ListBox.ItemsPanel>
+
+            </ListBox>
+
             <TextBlock Width="50" TextTrimming="CharacterEllipsis">
                 <TextBlock.Style>
                     <Style TargetType="TextBlock">

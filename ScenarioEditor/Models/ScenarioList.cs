@@ -54,6 +54,14 @@ namespace ScenarioEditor.Models
                     scnElements.Select(scn => new Scenario(scn)));
             }
 
+            if (ContentsLoader != null)
+            {
+                foreach (var s in Scenarios)
+                {
+                    s.UpdateUrls(ContentsLoader);
+                }
+            }
+
             RaisePropertyChanged(nameof(Scenarios));
         }
     }
