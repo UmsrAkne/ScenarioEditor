@@ -1,11 +1,14 @@
 using System.Xml.Linq;
 using System.Xml.Serialization;
+using Prism.Mvvm;
 
 namespace ScenarioEditor.Models.XmlElements
 {
     [XmlRoot("text")]
-    public class Text
+    public class Text : BindableBase
     {
+        private string str;
+
         public Text()
         {
         }
@@ -14,10 +17,10 @@ namespace ScenarioEditor.Models.XmlElements
         {
             var textElement = scenarioElement.Element(ElementName);
 
-            var str = textElement?.Attribute(StrAttribute);
-            if (str != null)
+            var s = textElement?.Attribute(StrAttribute);
+            if (s != null)
             {
-                Str = str.Value;
+                Str = s.Value;
             }
 
             var stringAttribute = textElement?.Attribute(StringAttribute);
@@ -27,8 +30,7 @@ namespace ScenarioEditor.Models.XmlElements
             }
         }
 
-        [XmlAttribute("str")]
-        public string Str { get; set; }
+        public string Str { get => str; set => SetProperty(ref str, value); }
 
         public string ElementName { get; set; } = "text";
 

@@ -69,6 +69,7 @@
     <Compile Include="Models\ContentsLoader.cs" />
     <Compile Include="Models\DropBehavior.cs" />
     <Compile Include="Models\ScenarioList.cs" />
+    <Compile Include="Models\XmlElements\Draw.cs" />
     <Compile Include="Models\XmlElements\Image.cs" />
     <Compile Include="Models\XmlElements\Scenario.cs" />
     <Compile Include="Models\XmlElements\Se.cs" />

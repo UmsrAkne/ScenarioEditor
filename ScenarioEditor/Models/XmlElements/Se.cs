@@ -1,9 +1,14 @@
 using System.Xml.Linq;
+using Prism.Mvvm;
 
 namespace ScenarioEditor.Models.XmlElements
 {
-    public class Se
+    public class Se : BindableBase
     {
+        private string fileName = string.Empty;
+        private int number;
+        private int repeatCount;
+
         public Se()
         {
         }
@@ -31,11 +36,11 @@ namespace ScenarioEditor.Models.XmlElements
             }
         }
 
-        public int RepeatCount { get; set; }
+        public int RepeatCount { get => repeatCount; set => SetProperty(ref repeatCount, value); }
 
-        public string FileName { get; set; } = string.Empty;
+        public string FileName { get => fileName; set => SetProperty(ref fileName, value); }
 
-        public int Number { get; set; }
+        public int Number { get => number; set => SetProperty(ref number, value); }
 
         public string ElementName => "se";
 
