@@ -65,6 +65,7 @@
 
             <StackPanel>
                 <ListView ItemTemplate="{StaticResource ImageTagListViewDataTemplate}" ItemsSource="{Binding ScenarioList.SelectedItem.Images}" />
+                <ListView ItemTemplate="{StaticResource DrawTagListViewDataTemplate}" ItemsSource="{Binding ScenarioList.SelectedItem.Draws}" />
             </StackPanel>
 
         </StackPanel>

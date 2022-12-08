@@ -86,4 +86,48 @@
         </StackPanel>
     </DataTemplate>
 
+    <!--  Drawの情報を表示するリストビューのデータテンプレート  -->
+    <DataTemplate x:Key="DrawTagListViewDataTemplate" DataType="{x:Type xmlElements:Draw}">
+        <StackPanel Orientation="Horizontal">
+
+            <StackPanel.Style>
+                <Style TargetType="StackPanel">
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding IsDefault}" Value="True">
+                            <Setter Property="Visibility" Value="Collapsed" />
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </StackPanel.Style>
+
+            <StackPanel.Resources>
+                <Style TargetType="TextBox">
+                    <Setter Property="MinWidth" Value="60" />
+                    <Setter Property="Margin" Value="2,0,12,0" />
+                </Style>
+            </StackPanel.Resources>
+
+            <TextBlock Text="Draw :" />
+
+            <Border Margin="5,0" />
+            <!--  ただの仕切り  -->
+
+            <TextBlock Text="a = " />
+            <TextBox Text="{Binding A}" />
+
+            <TextBlock Text="b = " />
+            <TextBox Text="{Binding B}" />
+
+            <TextBlock Text="c = " />
+            <TextBox Text="{Binding C}" />
+
+            <TextBlock Text="d = " />
+            <TextBox Text="{Binding D}" />
+
+            <TextBlock Text="target = " />
+            <TextBox Text="{Binding Target}" />
+
+        </StackPanel>
+    </DataTemplate>
+
 </ResourceDictionary>
