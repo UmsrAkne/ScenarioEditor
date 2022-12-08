@@ -12,12 +12,16 @@ namespace ScenarioEditor.Models.XmlElements
     public class Scenario : BindableBase
     {
         private ObservableCollection<Image> images = new ObservableCollection<Image>();
+        private ObservableCollection<Draw> draws = new ObservableCollection<Draw>();
+        private Se se;
 
         public Scenario(XElement scenarioElement)
         {
             Voice = new Voice(scenarioElement);
             Text = new Text(scenarioElement);
+            Se = new Se(scenarioElement);
             Images.Add(new Image(scenarioElement));
+            Draws.Add(new Draw(scenarioElement));
             Ignore = scenarioElement.Descendants("ignore").Any();
         }
 
@@ -31,7 +35,11 @@ namespace ScenarioEditor.Models.XmlElements
 
         public Text Text { get; set; }
 
+        public Se Se { get => se; set => SetProperty(ref se, value); }
+
         public ObservableCollection<Image> Images { get => images; set => SetProperty(ref images, value); }
+
+        public ObservableCollection<Draw> Draws { get => draws; set => SetProperty(ref draws, value); }
 
         public bool Ignore { get; set; }
 
@@ -53,6 +61,19 @@ namespace ScenarioEditor.Models.XmlElements
                 {
                     sb.AppendLine($"{Environment.NewLine}\t{i}");
                 }
+            }
+
+            if (Draws.Any(d => !d.IsDefault))
+            {
+                foreach (var d in Images)
+                {
+                    sb.AppendLine($"{Environment.NewLine}\t{d}");
+                }
+            }
+
+            if (Se != null && !Se.IsDefault)
+            {
+                sb.AppendLine($"{Environment.NewLine}\t{Se}");
             }
 
             sb.Append("</scenario>");
