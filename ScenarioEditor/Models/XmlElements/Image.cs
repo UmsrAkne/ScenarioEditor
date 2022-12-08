@@ -1,11 +1,21 @@
 using System.Xml.Linq;
 using System.Xml.Serialization;
+using Prism.Mvvm;
 
 namespace ScenarioEditor.Models.XmlElements
 {
     [XmlRoot("image")]
-    public class Image
+    public class Image : BindableBase
     {
+        private string a = string.Empty;
+        private string b = string.Empty;
+        private string c = string.Empty;
+        private string d = string.Empty;
+        private double x;
+        private double y;
+        private double scale = 1.0;
+        private string target = "main";
+
         public Image()
         {
         }
@@ -32,34 +42,30 @@ namespace ScenarioEditor.Models.XmlElements
             var yAtt = imageElement?.Attribute(YAttribute);
             Y = yAtt != null ? double.Parse(yAtt.Value) : 0;
 
-            var scale = imageElement?.Attribute(ScaleAttribute);
-            Scale = scale != null ? double.Parse(scale.Value) : 1.0;
+            var sc = imageElement?.Attribute(ScaleAttribute);
+            Scale = sc != null ? double.Parse(sc.Value) : 1.0;
 
-            var target = imageElement?.Attribute(TargetAttribute);
-            Target = target != null ? target.Value : string.Empty;
+            var tg = imageElement?.Attribute(TargetAttribute);
+            Target = tg != null ? tg.Value : string.Empty;
         }
 
         public string ElementName => "image";
 
-        [XmlAttribute("A")]
-        public string A { get; set; } = string.Empty;
+        public string A { get => a; set => SetProperty(ref a, value); }
 
-        [XmlAttribute("B")]
-        public string B { get; set; } = string.Empty;
+        public string B { get => b; set => SetProperty(ref b, value); }
 
-        [XmlAttribute("C")]
-        public string C { get; set; } = string.Empty;
+        public string C { get => c; set => SetProperty(ref c, value); }
 
-        [XmlAttribute("D")]
-        public string D { get; set; } = string.Empty;
+        public string D { get => d; set => SetProperty(ref d, value); }
 
-        public double X { get; set; }
+        public double X { get => x; set => SetProperty(ref x, value); }
 
-        public double Y { get; set; }
+        public double Y { get => y; set => SetProperty(ref y, value); }
 
-        public double Scale { get; set; } = 1.0;
+        public double Scale { get => scale; set => SetProperty(ref scale, value); }
 
-        public string Target { get; set; } = "main";
+        public string Target { get => target; set => SetProperty(ref target, value); }
 
         public bool IsDefault => A + B + C + D == string.Empty;
 
