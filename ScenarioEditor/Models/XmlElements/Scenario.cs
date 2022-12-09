@@ -65,6 +65,18 @@ namespace ScenarioEditor.Models.XmlElements
             Urls = list;
         }
 
+        /// <summary>
+        /// シナリオ内の全てのImage, Drawに対して画像ファイルの情報をセットします
+        /// </summary>
+        /// <param name="loader">画像ファイルの情報をロードしたローダーを入力します</param>
+        public void SetImageFileInfos(ContentsLoader loader)
+        {
+            foreach (var image in Images)
+            {
+                image.ImageFiles = loader.ImageFileInfos;
+            }
+        }
+
         public override string ToString()
         {
             var sb = new StringBuilder();
