@@ -59,6 +59,7 @@ namespace ScenarioEditor.Models
                 foreach (var s in Scenarios)
                 {
                     s.UpdateUrls(ContentsLoader);
+                    s.SetImageFileInfos(ContentsLoader);
                 }
             }
 

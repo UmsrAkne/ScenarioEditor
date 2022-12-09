@@ -1,5 +1,9 @@
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
 using System.Xml.Linq;
 using System.Xml.Serialization;
+using Prism.Commands;
 using Prism.Mvvm;
 
 namespace ScenarioEditor.Models.XmlElements
@@ -7,6 +11,8 @@ namespace ScenarioEditor.Models.XmlElements
     [XmlRoot("image")]
     public class Image : BindableBase
     {
+        private DelegateCommand<string> changeImageToNextCommand;
+
         private string a = string.Empty;
         private string b = string.Empty;
         private string c = string.Empty;
@@ -68,6 +74,25 @@ namespace ScenarioEditor.Models.XmlElements
         public string Target { get => target; set => SetProperty(ref target, value); }
 
         public bool IsDefault => A + B + C + D == string.Empty;
+
+        public List<FileInfo> ImageFiles { get; set; } = new List<FileInfo>();
+
+        public DelegateCommand<string> ChangeImageToNextCommand =>
+            changeImageToNextCommand ?? (changeImageToNextCommand = new DelegateCommand<string>((string propName) =>
+            {
+                var currentName = (string)GetType().GetProperty(propName)?.GetValue(this);
+                var fileList = ImageFiles.Where(f => Path.GetFileNameWithoutExtension(f.Name).Contains(propName)).ToList();
+                var currentIndex =
+                    fileList.IndexOf(fileList.FirstOrDefault(f =>
+                        Path.GetFileNameWithoutExtension(f.Name) == currentName));
+
+                if (currentIndex < 0 || currentIndex + 1 >= fileList.Count)
+                {
+                    currentIndex = -1;
+                }
+
+                GetType().GetProperty(propName)?.SetValue(this, Path.GetFileNameWithoutExtension(fileList[currentIndex + 1].Name));
+            }));
 
         private string AAttribute => "a";
 

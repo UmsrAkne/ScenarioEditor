@@ -82,16 +82,44 @@
             <!--  ただの仕切り  -->
 
             <TextBlock Text="a = " />
-            <TextBox Text="{Binding A}" />
+            <TextBox Text="{Binding A}">
+                <TextBox.InputBindings>
+                    <KeyBinding
+                        Key="Up"
+                        Command="{Binding ChangeImageToNextCommand}"
+                        CommandParameter="A" />
+                </TextBox.InputBindings>
+            </TextBox>
 
             <TextBlock Text="b = " />
-            <TextBox Text="{Binding B}" />
+            <TextBox Text="{Binding B}">
+                <TextBox.InputBindings>
+                    <KeyBinding
+                        Key="Up"
+                        Command="{Binding ChangeImageToNextCommand}"
+                        CommandParameter="B" />
+                </TextBox.InputBindings>
+            </TextBox>
 
             <TextBlock Text="c = " />
-            <TextBox Text="{Binding C}" />
+            <TextBox Text="{Binding C}">
+                <TextBox.InputBindings>
+                    <KeyBinding
+                        Key="Up"
+                        Command="{Binding ChangeImageToNextCommand}"
+                        CommandParameter="C" />
+                </TextBox.InputBindings>
+            </TextBox>
 
             <TextBlock Text="d = " />
-            <TextBox Text="{Binding D}" />
+            <TextBox Text="{Binding D}">
+                <TextBox.InputBindings>
+                    <KeyBinding
+                        Key="Up"
+                        Command="{Binding ChangeImageToNextCommand}"
+                        CommandParameter="D" />
+                </TextBox.InputBindings>
+            </TextBox>
 
             <TextBlock Text="scale = " />
             <TextBox Text="{Binding Scale}" />
