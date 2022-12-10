@@ -78,7 +78,7 @@ namespace ScenarioEditor.Models.XmlElements
         public List<FileInfo> ImageFiles { get; set; } = new List<FileInfo>();
 
         public DelegateCommand<string> ChangeImageToNextCommand =>
-            changeImageToNextCommand ?? (changeImageToNextCommand = new DelegateCommand<string>((string propName) =>
+            changeImageToNextCommand ?? (changeImageToNextCommand = new DelegateCommand<string>(propName =>
             {
                 var currentName = (string)GetType().GetProperty(propName)?.GetValue(this);
                 var fileList = ImageFiles.Where(f => Path.GetFileNameWithoutExtension(f.Name).Contains(propName)).ToList();
