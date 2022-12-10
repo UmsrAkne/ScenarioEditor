@@ -11,7 +11,7 @@ using Prism.Mvvm;
 namespace ScenarioEditor.Models.XmlElements
 {
     [XmlRoot("scenario")]
-    public class Scenario : BindableBase
+    public class Scenario : BindableBase, IXmlElement
     {
         private ObservableCollection<Image> images = new ObservableCollection<Image>();
         private ObservableCollection<Draw> draws = new ObservableCollection<Draw>();
@@ -32,6 +32,8 @@ namespace ScenarioEditor.Models.XmlElements
         }
 
         public string ElementName => "scenario";
+
+        public bool IsDefault { get; }
 
         public Voice Voice { get; set; }
 

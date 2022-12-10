@@ -5,7 +5,7 @@ using Prism.Mvvm;
 namespace ScenarioEditor.Models.XmlElements
 {
     [XmlRoot("voice")]
-    public class Voice : BindableBase
+    public class Voice : BindableBase, IXmlElement
     {
         private string fileName = string.Empty;
         private int number;

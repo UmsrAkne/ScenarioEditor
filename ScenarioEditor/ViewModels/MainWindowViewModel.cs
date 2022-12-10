@@ -3,6 +3,7 @@ using ScenarioEditor.Models;
 
 namespace ScenarioEditor.ViewModels
 {
+    // ReSharper disable once ClassNeverInstantiated.Global
     public class MainWindowViewModel : BindableBase
     {
         private string title = "Prism Application";

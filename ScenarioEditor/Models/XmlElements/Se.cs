@@ -3,7 +3,7 @@ using Prism.Mvvm;
 
 namespace ScenarioEditor.Models.XmlElements
 {
-    public class Se : BindableBase
+    public class Se : BindableBase, IXmlElement
     {
         private string fileName = string.Empty;
         private int number;
