@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -55,6 +56,8 @@ namespace ScenarioEditor.Models.XmlElements
             Target = tg != null ? tg.Value : string.Empty;
         }
 
+        public event EventHandler ImageChanged;
+
         public string ElementName => "image";
 
         public string A { get => a; set => SetProperty(ref a, value); }
@@ -92,6 +95,7 @@ namespace ScenarioEditor.Models.XmlElements
                 }
 
                 GetType().GetProperty(propName)?.SetValue(this, Path.GetFileNameWithoutExtension(fileList[currentIndex + 1].Name));
+                ImageChanged?.Invoke(this, EventArgs.Empty);
             }));
 
         private string AAttribute => "a";

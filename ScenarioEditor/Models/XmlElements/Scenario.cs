@@ -49,6 +49,8 @@ namespace ScenarioEditor.Models.XmlElements
 
         public bool Ignore { get; set; }
 
+        private ContentsLoader ContentsLoader { get; set; }
+
         public void UpdateUrls(ContentsLoader loader)
         {
             var img = Images.First();
@@ -65,6 +67,7 @@ namespace ScenarioEditor.Models.XmlElements
             }
 
             Urls = list;
+            RaisePropertyChanged(nameof(Urls));
         }
 
         /// <summary>
@@ -76,6 +79,7 @@ namespace ScenarioEditor.Models.XmlElements
             foreach (var image in Images)
             {
                 image.ImageFiles = loader.ImageFileInfos;
+                image.ImageChanged += (sender, args) => UpdateUrls(loader);
             }
         }
 
