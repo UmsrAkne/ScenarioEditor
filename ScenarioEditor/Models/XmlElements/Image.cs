@@ -9,7 +9,7 @@ using Prism.Mvvm;
 namespace ScenarioEditor.Models.XmlElements
 {
     [XmlRoot("image")]
-    public class Image : BindableBase
+    public class Image : BindableBase, IXmlElement
     {
         private DelegateCommand<string> changeImageToNextCommand;
 

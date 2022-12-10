@@ -5,7 +5,7 @@ using Prism.Mvvm;
 namespace ScenarioEditor.Models.XmlElements
 {
     [XmlRoot("text")]
-    public class Text : BindableBase
+    public class Text : BindableBase, IXmlElement
     {
         private string str;
 
@@ -33,6 +33,8 @@ namespace ScenarioEditor.Models.XmlElements
         public string Str { get => str; set => SetProperty(ref str, value); }
 
         public string ElementName { get; set; } = "text";
+
+        public bool IsDefault => Str == string.Empty;
 
         private string StrAttribute { get; } = "str";
 
