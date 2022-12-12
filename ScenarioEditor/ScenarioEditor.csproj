@@ -75,6 +75,7 @@
     <Compile Include="Models\XmlElements\IXmlElement.cs" />
     <Compile Include="Models\XmlElements\Scenario.cs" />
     <Compile Include="Models\XmlElements\Se.cs" />
+    <Compile Include="Models\XmlElements\Shake.cs" />
     <Compile Include="Models\XmlElements\Text.cs" />
     <Compile Include="Models\XmlElements\Voice.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
