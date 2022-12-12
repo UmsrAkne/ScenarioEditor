@@ -70,6 +70,7 @@
     <Compile Include="Models\DropBehavior.cs" />
     <Compile Include="Models\ScenarioList.cs" />
     <Compile Include="Models\XmlElements\Draw.cs" />
+    <Compile Include="Models\XmlElements\IAnimation.cs" />
     <Compile Include="Models\XmlElements\Image.cs" />
     <Compile Include="Models\XmlElements\IXmlElement.cs" />
     <Compile Include="Models\XmlElements\Scenario.cs" />
