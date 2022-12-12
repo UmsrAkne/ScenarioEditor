@@ -17,25 +17,33 @@ namespace ScenarioEditor.Models.XmlElements
 
             return animeElements.Select(a =>
             {
-                if (a.Attribute("name").Value == "shake")
+                if (GetAttributeValue(a, "name") == "shake")
                 {
                     var shake = new Shake();
 
-                    var strengthAtt = "strength";
-                    shake.Strength = a.Attribute(strengthAtt) != null && a.Attribute(strengthAtt).Value != null
-                        ? int.Parse(a.Attribute(strengthAtt).Value)
-                        : shake.Strength;
+                    const string strengthAtt = "strength";
+                    if (a.Attribute(strengthAtt) != null)
+                    {
+                        shake.Strength = int.Parse(GetAttributeValue(a, strengthAtt));
+                    }
 
-                    var durationAtt = "duration";
-                    shake.Duration = a.Attribute(durationAtt) != null && a.Attribute(durationAtt).Value != null
-                        ? int.Parse(a.Attribute(durationAtt).Value)
-                        : shake.Duration;
+                    const string durationAtt = "duration";
+                    if (a.Attribute(durationAtt) != null)
+                    {
+                        shake.Duration = int.Parse(GetAttributeValue(a, durationAtt));
+                    }
 
                     return (IAnimation)shake;
                 }
 
                 throw new ArgumentException();
             }).ToList();
+        }
+
+        private static string GetAttributeValue(XElement targetElement, string attributeName)
+        {
+            var attribute = targetElement.Attribute(attributeName);
+            return attribute == null ? string.Empty : attribute.Value;
         }
     }
 }
