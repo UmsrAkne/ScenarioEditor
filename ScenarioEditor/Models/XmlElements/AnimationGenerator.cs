@@ -17,10 +17,9 @@ namespace ScenarioEditor.Models.XmlElements
 
             return animeElements.Select(a =>
             {
-                if (GetAttributeValue(a, "name") == "shake")
+                var shake = new Shake();
+                if (GetAttributeValue(a, "name") == shake.Name)
                 {
-                    var shake = new Shake();
-
                     const string strengthAtt = "strength";
                     if (a.Attribute(strengthAtt) != null)
                     {
@@ -34,6 +33,30 @@ namespace ScenarioEditor.Models.XmlElements
                     }
 
                     return (IAnimation)shake;
+                }
+
+                var slide = new Slide();
+                if (GetAttributeValue(a, "name") == slide.Name)
+                {
+                    var speedAtt = nameof(slide.Speed).ToLower();
+                    if (a.Attribute(speedAtt) != null)
+                    {
+                        slide.Speed = double.Parse(GetAttributeValue(a, speedAtt));
+                    }
+
+                    var distanceAtt = nameof(slide.Distance).ToLower();
+                    if (a.Attribute(distanceAtt) != null)
+                    {
+                        slide.Distance = int.Parse(GetAttributeValue(a, distanceAtt));
+                    }
+
+                    var degreeAtt = nameof(slide.Degree).ToLower();
+                    if (a.Attribute(degreeAtt) != null)
+                    {
+                        slide.Degree = int.Parse(GetAttributeValue(a, degreeAtt));
+                    }
+
+                    return (IAnimation)slide;
                 }
 
                 throw new ArgumentException();
