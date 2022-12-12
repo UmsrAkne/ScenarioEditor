@@ -15,6 +15,7 @@ namespace ScenarioEditor.Models.XmlElements
     {
         private ObservableCollection<Image> images = new ObservableCollection<Image>();
         private ObservableCollection<Draw> draws = new ObservableCollection<Draw>();
+        private ObservableCollection<IAnimation> animations;
         private Se se;
 
         public Scenario(XElement scenarioElement)
@@ -24,6 +25,9 @@ namespace ScenarioEditor.Models.XmlElements
             Se = new Se(scenarioElement);
             Images.Add(new Image(scenarioElement));
             Draws.Add(new Draw(scenarioElement));
+            Animations = new ObservableCollection<IAnimation>(
+                    AnimationGenerator.GetAnimation(scenarioElement));
+
             Ignore = scenarioElement.Descendants("ignore").Any();
         }
 
@@ -44,6 +48,8 @@ namespace ScenarioEditor.Models.XmlElements
         public ObservableCollection<Image> Images { get => images; set => SetProperty(ref images, value); }
 
         public ObservableCollection<Draw> Draws { get => draws; set => SetProperty(ref draws, value); }
+
+        public ObservableCollection<IAnimation> Animations { get => animations; set => SetProperty(ref animations, value); }
 
         public List<string> Urls { get; set; }
 
