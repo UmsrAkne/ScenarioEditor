@@ -79,5 +79,21 @@ namespace Tests.Models.XmlElements
             Assert.AreEqual(0.5, flash.Alpha);
             Assert.AreEqual(2, flash.RepeatCount);
         }
+
+        [Test]
+        public void AlphaChangerの生成テスト()
+        {
+            var xmlText = "<scenario>" +
+                              "<anime name=\"alphaChanger\" amount=\"0.5\"  />" +
+                          "</scenario>";
+
+            var animations = AnimationGenerator.GetAnimation(XElement.Parse(xmlText));
+
+            Assert.AreEqual(1, animations.Count);
+
+            var alphaChanger = (AlphaChanger)animations.First();
+            Assert.AreEqual("alphaChanger", alphaChanger.Name);
+            Assert.AreEqual(0.5, alphaChanger.Amount);
+        }
     }
 }

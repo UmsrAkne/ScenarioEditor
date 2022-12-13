@@ -121,6 +121,18 @@ namespace ScenarioEditor.Models.XmlElements
                     return flash;
                 }
 
+                var alphaChanger = new AlphaChanger();
+                if (GetAttributeValue(a, "name") == alphaChanger.Name)
+                {
+                    var amountAtt = nameof(alphaChanger.Amount).ToLower();
+                    if (a.Attribute(amountAtt) != null)
+                    {
+                        alphaChanger.Amount = double.Parse(GetAttributeValue(a, amountAtt));
+                    }
+
+                    return alphaChanger;
+                }
+
                 throw new ArgumentException();
             }).ToList();
         }
