@@ -59,6 +59,37 @@ namespace ScenarioEditor.Models.XmlElements
                     return (IAnimation)slide;
                 }
 
+                var bound = new Bound();
+                if (GetAttributeValue(a, "name") == bound.Name)
+                {
+                    var durationAtt = nameof(bound.Duration).ToLower();
+                    if (a.Attribute(durationAtt) != null)
+                    {
+                        bound.Duration = int.Parse(GetAttributeValue(a, durationAtt));
+                    }
+
+                    var degreeAtt = nameof(bound.Degree).ToLower();
+                    if (a.Attribute(degreeAtt) != null)
+                    {
+                        bound.Degree = int.Parse(GetAttributeValue(a, degreeAtt));
+                    }
+
+                    var strengthAtt = nameof(bound.Strength).ToLower();
+                    if (a.Attribute(strengthAtt) != null)
+                    {
+                        bound.Strength = int.Parse(GetAttributeValue(a, strengthAtt));
+                    }
+
+                    var repeatCountAtt = nameof(bound.RepeatCount);
+                    repeatCountAtt = char.ToLower(repeatCountAtt.First()) + repeatCountAtt.Substring(1); // ToLowerCamel
+                    if (a.Attribute(repeatCountAtt) != null)
+                    {
+                        bound.RepeatCount = int.Parse(GetAttributeValue(a, repeatCountAtt));
+                    }
+
+                    return bound;
+                }
+
                 throw new ArgumentException();
             }).ToList();
         }

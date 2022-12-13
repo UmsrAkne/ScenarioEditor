@@ -41,5 +41,24 @@ namespace Tests.Models.XmlElements
             Assert.AreEqual(90, slide.Degree);
             Assert.AreEqual(15, slide.Distance);
         }
+
+        [Test]
+        public void Boundの生成テスト()
+        {
+            var xmlText = "<scenario>" +
+                              "<anime name=\"bound\" strength=\"10\" duration=\"90\" degree=\"15\" repeatCount=\"2\" />" +
+                          "</scenario>";
+
+            var animations = AnimationGenerator.GetAnimation(XElement.Parse(xmlText));
+
+            Assert.AreEqual(1, animations.Count);
+
+            var bound = (Bound)animations.First();
+            Assert.AreEqual("bound", bound.Name);
+            Assert.AreEqual(10, bound.Strength);
+            Assert.AreEqual(90, bound.Duration);
+            Assert.AreEqual(15, bound.Degree);
+            Assert.AreEqual(2, bound.RepeatCount);
+        }
     }
 }
