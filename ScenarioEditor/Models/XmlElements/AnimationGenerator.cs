@@ -56,7 +56,7 @@ namespace ScenarioEditor.Models.XmlElements
                         slide.Degree = int.Parse(GetAttributeValue(a, degreeAtt));
                     }
 
-                    return (IAnimation)slide;
+                    return slide;
                 }
 
                 var bound = new Bound();
