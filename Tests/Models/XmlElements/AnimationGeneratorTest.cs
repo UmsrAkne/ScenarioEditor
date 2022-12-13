@@ -60,5 +60,24 @@ namespace Tests.Models.XmlElements
             Assert.AreEqual(15, bound.Degree);
             Assert.AreEqual(2, bound.RepeatCount);
         }
+
+        [Test]
+        public void Flashの生成テスト()
+        {
+            var xmlText = "<scenario>" +
+                              "<anime name=\"flash\" duration=\"10\" cycle=\"90\" alpha=\"0.5\" repeatCount=\"2\" />" +
+                          "</scenario>";
+
+            var animations = AnimationGenerator.GetAnimation(XElement.Parse(xmlText));
+
+            Assert.AreEqual(1, animations.Count);
+
+            var flash = (Flash)animations.First();
+            Assert.AreEqual("flash", flash.Name);
+            Assert.AreEqual(10, flash.Duration);
+            Assert.AreEqual(90, flash.Cycle);
+            Assert.AreEqual(0.5, flash.Alpha);
+            Assert.AreEqual(2, flash.RepeatCount);
+        }
     }
 }

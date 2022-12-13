@@ -90,6 +90,37 @@ namespace ScenarioEditor.Models.XmlElements
                     return bound;
                 }
 
+                var flash = new Flash();
+                if (GetAttributeValue(a, "name") == flash.Name)
+                {
+                    var durationAtt = nameof(flash.Duration).ToLower();
+                    if (a.Attribute(durationAtt) != null)
+                    {
+                        flash.Duration = int.Parse(GetAttributeValue(a, durationAtt));
+                    }
+
+                    var cycleAtt = nameof(flash.Cycle).ToLower();
+                    if (a.Attribute(cycleAtt) != null)
+                    {
+                        flash.Cycle = int.Parse(GetAttributeValue(a, cycleAtt));
+                    }
+
+                    var alphaAtt = nameof(flash.Alpha).ToLower();
+                    if (a.Attribute(alphaAtt) != null)
+                    {
+                        flash.Alpha = double.Parse(GetAttributeValue(a, alphaAtt));
+                    }
+
+                    var repeatCountAtt = nameof(flash.RepeatCount);
+                    repeatCountAtt = char.ToLower(repeatCountAtt.First()) + repeatCountAtt.Substring(1); // ToLowerCamel
+                    if (a.Attribute(repeatCountAtt) != null)
+                    {
+                        flash.RepeatCount = int.Parse(GetAttributeValue(a, repeatCountAtt));
+                    }
+
+                    return flash;
+                }
+
                 throw new ArgumentException();
             }).ToList();
         }

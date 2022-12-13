@@ -72,6 +72,7 @@
     <Compile Include="Models\XmlElements\AnimationGenerator.cs" />
     <Compile Include="Models\XmlElements\Bound.cs" />
     <Compile Include="Models\XmlElements\Draw.cs" />
+    <Compile Include="Models\XmlElements\Flash.cs" />
     <Compile Include="Models\XmlElements\IAnimation.cs" />
     <Compile Include="Models\XmlElements\Image.cs" />
     <Compile Include="Models\XmlElements\IXmlElement.cs" />
