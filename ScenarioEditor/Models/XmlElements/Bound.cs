@@ -15,5 +15,15 @@ namespace ScenarioEditor.Models.XmlElements
         public int Strength { get; set; }
 
         public int RepeatCount { get; set; }
+
+        public override string ToString()
+        {
+            return $"<{Name} " +
+                   $"strength=\"{Strength}\" " +
+                   $"degree=\"{Degree}\" " +
+                   $"duration=\"{Duration}\" " +
+                   $"repeatCount=\"{RepeatCount}\" " +
+                   $"/>";
+        }
     }
 }
