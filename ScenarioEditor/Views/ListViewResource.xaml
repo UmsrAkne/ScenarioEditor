@@ -180,4 +180,13 @@
         </StackPanel>
     </DataTemplate>
 
+    <DataTemplate x:Key="SeElementDataTemplate" DataType="{x:Type xmlElements:IXmlElement}">
+        <StackPanel Orientation="Horizontal">
+
+            <TextBlock Text="number= " />
+            <TextBox />
+
+        </StackPanel>
+    </DataTemplate>
+
 </ResourceDictionary>

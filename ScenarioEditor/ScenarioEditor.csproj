@@ -84,6 +84,7 @@
     <Compile Include="Models\XmlElements\Text.cs" />
     <Compile Include="Models\XmlElements\Voice.cs" />
     <Compile Include="ViewModels\MainWindowViewModel.cs" />
+    <Compile Include="Views\ElementDataTemplateSelector.cs" />
     <Compile Include="Views\MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
