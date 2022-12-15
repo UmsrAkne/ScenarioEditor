@@ -13,7 +13,13 @@ namespace ScenarioEditor.Views
 
             if (element != null)
             {
-                templateKey = element.ElementName == new Se().ElementName ? "SeElementDataTemplate" : string.Empty;
+                templateKey =
+                    element.ElementName == new AlphaChanger().ElementName ? $"{nameof(AlphaChanger)}AnimationDataTemplate" :
+                    element.ElementName == new Shake().ElementName ? $"{nameof(Shake)}AnimationDataTemplate" :
+                    element.ElementName == new Slide().ElementName ? $"{nameof(Slide)}AnimationDataTemplate" :
+                    element.ElementName == new Flash().ElementName ? $"{nameof(Flash)}AnimationDataTemplate" :
+                    element.ElementName == new Bound().ElementName ? $"{nameof(Bound)}AnimationDataTemplate" :
+                    string.Empty;
             }
 
             return ((FrameworkElement)container).FindResource(templateKey) as DataTemplate;

@@ -180,10 +180,91 @@
         </StackPanel>
     </DataTemplate>
 
-    <DataTemplate x:Key="SeElementDataTemplate" DataType="{x:Type xmlElements:IXmlElement}">
+    <!--  Animation Element 用のテンプレート　DataTemplateSelector 経由で使用される  -->
+
+    <DataTemplate x:Key="AlphaChangerAnimationDataTemplate" DataType="{x:Type xmlElements:IAnimation}">
         <StackPanel Orientation="Horizontal">
 
-            <TextBlock Text="number= " />
+            <StackPanel.Resources>
+                <Style TargetType="TextBox">
+                    <Setter Property="MinWidth" Value="60" />
+                    <Setter Property="Margin" Value="2,0,12,0" />
+                </Style>
+            </StackPanel.Resources>
+
+            <TextBlock Margin="5,0" Text="{Binding Name}" />
+
+            <TextBlock Text="strength= " />
+            <TextBox />
+        </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate x:Key="ShakeAnimationDataTemplate" DataType="{x:Type xmlElements:IAnimation}">
+        <StackPanel Orientation="Horizontal">
+
+            <StackPanel.Resources>
+                <Style TargetType="TextBox">
+                    <Setter Property="MinWidth" Value="60" />
+                    <Setter Property="Margin" Value="2,0,12,0" />
+                </Style>
+            </StackPanel.Resources>
+
+            <TextBlock Margin="5,0" Text="{Binding Name}" />
+
+            <TextBlock Text="strength= " />
+            <TextBox />
+        </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate x:Key="BoundAnimationDataTemplate" DataType="{x:Type xmlElements:IAnimation}">
+        <StackPanel Orientation="Horizontal">
+
+            <StackPanel.Resources>
+                <Style TargetType="TextBox">
+                    <Setter Property="MinWidth" Value="60" />
+                    <Setter Property="Margin" Value="2,0,12,0" />
+                </Style>
+            </StackPanel.Resources>
+
+            <TextBlock Margin="5,0" Text="{Binding Name}" />
+
+            <TextBlock Text="strength= " />
+            <TextBox />
+
+        </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate x:Key="SlideAnimationDataTemplate" DataType="{x:Type xmlElements:IAnimation}">
+        <StackPanel Orientation="Horizontal">
+
+            <StackPanel.Resources>
+                <Style TargetType="TextBox">
+                    <Setter Property="MinWidth" Value="60" />
+                    <Setter Property="Margin" Value="2,0,12,0" />
+                </Style>
+            </StackPanel.Resources>
+
+            <TextBlock Margin="5,0" Text="{Binding Name}" />
+
+            <TextBlock Text="strength= " />
+            <TextBox />
+
+        </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate x:Key="FlashAnimationDataTemplate" DataType="{x:Type xmlElements:IAnimation}">
+        <StackPanel Orientation="Horizontal">
+
+            <StackPanel.Resources>
+                <Style TargetType="TextBox">
+                    <Setter Property="MinWidth" Value="60" />
+                    <Setter Property="Margin" Value="2,0,12,0" />
+                </Style>
+            </StackPanel.Resources>
+
+            <TextBlock Margin="5,0" Text="{Binding Name}" />
+
+            <TextBlock Text="strength= " />
             <TextBox />
 
         </StackPanel>
