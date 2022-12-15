@@ -180,4 +180,124 @@
         </StackPanel>
     </DataTemplate>
 
+    <!--  Animation Element 用のテンプレート　DataTemplateSelector 経由で使用される  -->
+
+    <DataTemplate x:Key="AlphaChangerAnimationDataTemplate" DataType="{x:Type xmlElements:AlphaChanger}">
+        <StackPanel Orientation="Horizontal">
+
+            <StackPanel.Resources>
+                <Style TargetType="TextBox">
+                    <Setter Property="MinWidth" Value="60" />
+                    <Setter Property="Margin" Value="2,0,12,0" />
+                </Style>
+            </StackPanel.Resources>
+
+            <TextBlock Margin="5,0" Text="{Binding Name}" />
+
+            <TextBlock Text="amount= " />
+            <TextBox Text="{Binding Amount}" />
+
+        </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate x:Key="ShakeAnimationDataTemplate" DataType="{x:Type xmlElements:Shake}">
+        <StackPanel Orientation="Horizontal">
+
+            <StackPanel.Resources>
+                <Style TargetType="TextBox">
+                    <Setter Property="MinWidth" Value="60" />
+                    <Setter Property="Margin" Value="2,0,12,0" />
+                </Style>
+            </StackPanel.Resources>
+
+            <TextBlock Margin="5,0" Text="{Binding Name}" />
+
+            <TextBlock Text="strength= " />
+            <TextBox Text="{Binding Strength}" />
+
+            <TextBlock Text="duration= " />
+            <TextBox Text="{Binding Duration}" />
+
+        </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate x:Key="BoundAnimationDataTemplate" DataType="{x:Type xmlElements:Bound}">
+        <StackPanel Orientation="Horizontal">
+
+            <StackPanel.Resources>
+                <Style TargetType="TextBox">
+                    <Setter Property="MinWidth" Value="60" />
+                    <Setter Property="Margin" Value="2,0,12,0" />
+                </Style>
+            </StackPanel.Resources>
+
+            <TextBlock Margin="5,0" Text="{Binding Name}" />
+
+            <TextBlock Text="duration= " />
+            <TextBox Text="{Binding Duration}" />
+
+            <TextBlock Text="degree= " />
+            <TextBox Text="{Binding Degree}" />
+
+            <TextBlock Text="strength= " />
+            <TextBox Text="{Binding Strength}" />
+
+            <TextBlock Text="repeatCount= " />
+            <TextBox Text="{Binding RepeatCount}" />
+
+        </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate x:Key="SlideAnimationDataTemplate" DataType="{x:Type xmlElements:Slide}">
+        <StackPanel Orientation="Horizontal">
+
+            <StackPanel.Resources>
+                <Style TargetType="TextBox">
+                    <Setter Property="MinWidth" Value="60" />
+                    <Setter Property="Margin" Value="2,0,12,0" />
+                </Style>
+            </StackPanel.Resources>
+
+            <TextBlock Margin="5,0" Text="{Binding Name}" />
+
+            <TextBlock Text="Speed= " />
+            <TextBox Text="{Binding Speed}" />
+
+            <TextBlock Text="Degree= " />
+            <TextBox Text="{Binding Degree}" />
+
+            <TextBlock Text="Distance= " />
+            <TextBox Text="{Binding Distance}" />
+
+            <TextBlock Text="RepeatCount= " />
+            <TextBox Text="{Binding RepeatCount}" />
+
+        </StackPanel>
+    </DataTemplate>
+
+    <DataTemplate x:Key="FlashAnimationDataTemplate" DataType="{x:Type xmlElements:Flash}">
+        <StackPanel Orientation="Horizontal">
+            <StackPanel.Resources>
+                <Style TargetType="TextBox">
+                    <Setter Property="MinWidth" Value="60" />
+                    <Setter Property="Margin" Value="2,0,12,0" />
+                </Style>
+            </StackPanel.Resources>
+
+            <TextBlock Margin="5,0" Text="{Binding Name}" />
+
+            <TextBlock Text="Cycle= " />
+            <TextBox Text="{Binding Cycle}" />
+
+            <TextBlock Text="Duration= " />
+            <TextBox Text="{Binding Duration}" />
+
+            <TextBlock Text="RepeatCount= " />
+            <TextBox Text="{Binding RepeatCount}" />
+
+            <TextBlock Text="Alpha= " />
+            <TextBox Text="{Binding Alpha}" />
+        </StackPanel>
+    </DataTemplate>
+
 </ResourceDictionary>
