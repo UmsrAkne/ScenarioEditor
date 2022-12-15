@@ -8,17 +8,17 @@ namespace ScenarioEditor.Views
     {
         public override DataTemplate SelectTemplate(object item, DependencyObject container)
         {
-            var element = (IXmlElement)item;
+            var element = (IAnimation)item;
             var templateKey = string.Empty;
 
             if (element != null)
             {
                 templateKey =
-                    element.ElementName == new AlphaChanger().ElementName ? $"{nameof(AlphaChanger)}AnimationDataTemplate" :
-                    element.ElementName == new Shake().ElementName ? $"{nameof(Shake)}AnimationDataTemplate" :
-                    element.ElementName == new Slide().ElementName ? $"{nameof(Slide)}AnimationDataTemplate" :
-                    element.ElementName == new Flash().ElementName ? $"{nameof(Flash)}AnimationDataTemplate" :
-                    element.ElementName == new Bound().ElementName ? $"{nameof(Bound)}AnimationDataTemplate" :
+                    element.Name == new AlphaChanger().Name ? $"{nameof(AlphaChanger)}AnimationDataTemplate" :
+                    element.Name == new Shake().Name ? $"{nameof(Shake)}AnimationDataTemplate" :
+                    element.Name == new Slide().Name ? $"{nameof(Slide)}AnimationDataTemplate" :
+                    element.Name == new Flash().Name ? $"{nameof(Flash)}AnimationDataTemplate" :
+                    element.Name == new Bound().Name ? $"{nameof(Bound)}AnimationDataTemplate" :
                     string.Empty;
             }
 
