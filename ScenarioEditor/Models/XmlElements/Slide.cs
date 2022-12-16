@@ -8,6 +8,7 @@ namespace ScenarioEditor.Models.XmlElements
         private double degree;
         private int repeatCount;
         private int distance;
+
         public string ElementName => "anime";
 
         public bool IsDefault { get; }

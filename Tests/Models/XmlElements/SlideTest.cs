@@ -3,6 +3,7 @@ using ScenarioEditor.Models.XmlElements;
 
 namespace Tests.Models.XmlElements
 {
+    [TestFixture]
     public class SlideTest
     {
         [Test]
