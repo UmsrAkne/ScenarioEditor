@@ -24,7 +24,7 @@ namespace ScenarioEditor.Models.XmlElements
 
         public override string ToString()
         {
-            return $"<{Name} " +
+            return $"<anime name=\"{Name}\" " +
                    $"speed=\"{Speed}\" " +
                    $"degree=\"{Degree}\" " +
                    $"distance=\"{Distance}\" " +
