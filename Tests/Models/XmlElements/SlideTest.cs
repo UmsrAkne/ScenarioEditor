@@ -16,7 +16,7 @@ namespace Tests.Models.XmlElements
                 RepeatCount = 3
             };
 
-            Assert.AreEqual(slide.ToString(), "<slide speed=\"15\" degree=\"120\" distance=\"20\" repeatCount=\"3\" />");
+            Assert.AreEqual(slide.ToString(), "<anime name=\"slide\" speed=\"15\" degree=\"120\" distance=\"20\" repeatCount=\"3\" />");
         }
     }
 }

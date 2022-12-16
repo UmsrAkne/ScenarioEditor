@@ -15,7 +15,7 @@ namespace Tests.Models.XmlElements
                 Duration = 120
             };
 
-            Assert.AreEqual(shake.ToString(), "<shake strength=\"90\" duration=\"120\" />");
+            Assert.AreEqual(shake.ToString(), "<anime name=\"shake\" strength=\"90\" duration=\"120\" />");
         }
     }
 }
