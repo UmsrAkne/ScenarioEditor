@@ -13,5 +13,12 @@ namespace ScenarioEditor.Models.XmlElements
         public string Name { get; set; } = "alphaChanger";
 
         public double Amount { get => amount; set => SetProperty(ref amount, value); }
+
+        public override string ToString()
+        {
+            return $"<anime name=\"{Name}\" " +
+                   $"amount=\"{Amount}\" " +
+                   $"/>";
+        }
     }
 }

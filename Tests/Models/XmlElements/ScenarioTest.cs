@@ -62,7 +62,6 @@ namespace Tests.Models.XmlElements
                 );
         }
 
-
         [Test]
         public void ToStringのテストImageTagあり()
         {
@@ -82,5 +81,40 @@ namespace Tests.Models.XmlElements
                 scenario.ToString()
                 );
         }
+
+        [Test]
+        public void Animeタグを含む場合のToString()
+        {
+            var scenario = new Scenario
+            {
+                Voice = new Voice() { FileName = "testFile" },
+                Text = new Text { Str = "testText" },
+            };
+
+            scenario.Images.Add(new Image());
+            scenario.Images.First().A = "imageA";
+            scenario.Animations.Add(new Shake()
+            {
+                Strength = 10,
+                Duration = 5,
+            });
+
+            scenario.Animations.Add(new Flash()
+            {
+                Cycle = 5,
+                Duration = 10,
+                RepeatCount = 3
+            });
+
+            Assert.AreEqual(
+                "<scenario><voice fileName=\"testFile\" /><text str=\"testText\" />\r\n" +
+                    "\t<image a=\"imageA\" b=\"\" c=\"\" d=\"\" scale=\"1\" x=\"0\" y=\"0\" target=\"main\" />\r\n" +
+                    "\t<anime name=\"shake\" strength=\"10\" duration=\"5\" />\r\n" +
+                    "\t<anime name=\"flash\" cycle=\"5\" duration=\"10\" repeatCount=\"3\" />\r\n" +
+                "</scenario>",
+                scenario.ToString()
+                );
+        }
+
     }
 }

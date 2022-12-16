@@ -21,5 +21,14 @@ namespace ScenarioEditor.Models.XmlElements
         public int RepeatCount { get => repeatCount; set => SetProperty(ref repeatCount, value); }
 
         public double Alpha { get; set; } = 1.0;
+
+        public override string ToString()
+        {
+            return $"<anime name=\"{Name}\" " +
+                   $"cycle=\"{Cycle}\" " +
+                   $"duration=\"{Duration}\" " +
+                   $"repeatCount=\"{RepeatCount}\" " +
+                   $"/>";
+        }
     }
 }
