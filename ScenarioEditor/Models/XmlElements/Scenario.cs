@@ -15,7 +15,7 @@ namespace ScenarioEditor.Models.XmlElements
     {
         private ObservableCollection<Image> images = new ObservableCollection<Image>();
         private ObservableCollection<Draw> draws = new ObservableCollection<Draw>();
-        private ObservableCollection<IAnimation> animations;
+        private ObservableCollection<IAnimation> animations = new ObservableCollection<IAnimation>();
         private Se se;
 
         public Scenario(XElement scenarioElement)
@@ -119,7 +119,12 @@ namespace ScenarioEditor.Models.XmlElements
 
             if (Se != null && !Se.IsDefault)
             {
-                sb.AppendLine($"{Environment.NewLine}\t{Se}");
+                sb.AppendLine($"\t{Se}");
+            }
+
+            foreach (var a in Animations)
+            {
+                sb.AppendLine($"\t{a.ToString()}");
             }
 
             sb.Append("</scenario>");
