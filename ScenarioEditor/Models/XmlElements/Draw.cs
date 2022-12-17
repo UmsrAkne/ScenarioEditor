@@ -5,7 +5,7 @@ using Prism.Mvvm;
 namespace ScenarioEditor.Models.XmlElements
 {
     [XmlRoot("image")]
-    public class Draw : BindableBase
+    public class Draw : BindableBase, IXmlElement
     {
         private string a = string.Empty;
         private string b = string.Empty;
