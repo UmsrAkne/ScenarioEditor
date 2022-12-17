@@ -1,3 +1,5 @@
+using System.Collections.Generic;
+using System.Linq;
 using Prism.Mvvm;
 
 namespace ScenarioEditor.Models.XmlElements
@@ -14,6 +16,19 @@ namespace ScenarioEditor.Models.XmlElements
         public string Names { get => names; set => SetProperty(ref names, value); }
 
         public int Channel { get => channel; set => SetProperty(ref channel, value); }
+
+        public List<string> NameList
+        {
+            get
+            {
+                if (Names == null || string.IsNullOrWhiteSpace(Names))
+                {
+                    return new List<string>();
+                }
+
+                return Names.Split(',').Select(n => n.Trim()).ToList();
+            }
+        }
 
         public override string ToString()
         {
