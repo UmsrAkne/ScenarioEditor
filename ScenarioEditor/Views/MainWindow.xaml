@@ -41,6 +41,20 @@
             <MenuItem Header="File">
                 <MenuItem Command="{Binding ScenarioList.ExportXmlCommand}" Header="XMLをクリップボードにコピー" />
             </MenuItem>
+
+            <MenuItem Header="Tag(_T)">
+                <MenuItem Header="Animation(_A)">
+                    <MenuItem Header="Shake(_S)" />
+                    <MenuItem Header="Bound(_B)" />
+                    <MenuItem Header="Slide(_l)" />
+                    <MenuItem Header="AlphaChanger(_A)" />
+                    <MenuItem Header="Flash(_F)" />
+                </MenuItem>
+
+                <MenuItem Header="Image(_I)" />
+                <MenuItem Header="Draw(_D)" />
+                <MenuItem Header="Se(_S)" />
+            </MenuItem>
         </Menu>
 
         <ListView
