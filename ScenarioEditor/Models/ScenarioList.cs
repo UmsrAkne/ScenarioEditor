@@ -65,6 +65,12 @@ namespace ScenarioEditor.Models
                     SelectedItem.Se = se;
                     return;
                 }
+
+                if (xmlElement is BackgroundVoice bgv)
+                {
+                    SelectedItem.BackgroundVoice = bgv;
+                    return;
+                }
             }));
 
         public void Load(XDocument doc)

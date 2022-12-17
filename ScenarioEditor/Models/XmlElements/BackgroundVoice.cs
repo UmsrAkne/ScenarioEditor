@@ -11,7 +11,7 @@ namespace ScenarioEditor.Models.XmlElements
 
         public string ElementName => "backgroundVoice";
 
-        public bool IsDefault { get; }
+        public bool IsDefault => NameList.Count == 0;
 
         public string Names { get => names; set => SetProperty(ref names, value); }
 

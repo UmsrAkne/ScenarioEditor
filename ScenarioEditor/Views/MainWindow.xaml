@@ -94,6 +94,13 @@
                         <xmlElements:Se />
                     </MenuItem.CommandParameter>
                 </MenuItem>
+
+                <MenuItem Command="{Binding ScenarioList.InsertTagCommand}" Header="BackgroundVoice(_B)">
+                    <MenuItem.CommandParameter>
+                        <xmlElements:BackgroundVoice />
+                    </MenuItem.CommandParameter>
+                </MenuItem>
+
             </MenuItem>
         </Menu>
 
