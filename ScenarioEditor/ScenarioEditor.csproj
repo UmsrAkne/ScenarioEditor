@@ -71,6 +71,7 @@
     <Compile Include="Models\ScenarioList.cs" />
     <Compile Include="Models\XmlElements\AlphaChanger.cs" />
     <Compile Include="Models\XmlElements\AnimationGenerator.cs" />
+    <Compile Include="Models\XmlElements\BackgroundVoice.cs" />
     <Compile Include="Models\XmlElements\Bound.cs" />
     <Compile Include="Models\XmlElements\Draw.cs" />
     <Compile Include="Models\XmlElements\Flash.cs" />
