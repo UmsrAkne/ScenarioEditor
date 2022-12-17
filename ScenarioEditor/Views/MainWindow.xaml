@@ -77,9 +77,30 @@
                     </MenuItem>
                 </MenuItem>
 
-                <MenuItem Header="Image(_I)" />
-                <MenuItem Header="Draw(_D)" />
-                <MenuItem Header="Se(_S)" />
+                <MenuItem Command="{Binding ScenarioList.InsertTagCommand}" Header="Image(_I)">
+                    <MenuItem.CommandParameter>
+                        <xmlElements:Image />
+                    </MenuItem.CommandParameter>
+                </MenuItem>
+
+                <MenuItem Command="{Binding ScenarioList.InsertTagCommand}" Header="Draw(_D)">
+                    <MenuItem.CommandParameter>
+                        <xmlElements:Draw />
+                    </MenuItem.CommandParameter>
+                </MenuItem>
+
+                <MenuItem Command="{Binding ScenarioList.InsertTagCommand}" Header="Se(_S)">
+                    <MenuItem.CommandParameter>
+                        <xmlElements:Se />
+                    </MenuItem.CommandParameter>
+                </MenuItem>
+
+                <MenuItem Command="{Binding ScenarioList.InsertTagCommand}" Header="BackgroundVoice(_B)">
+                    <MenuItem.CommandParameter>
+                        <xmlElements:BackgroundVoice />
+                    </MenuItem.CommandParameter>
+                </MenuItem>
+
             </MenuItem>
         </Menu>
 

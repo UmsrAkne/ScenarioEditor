@@ -17,6 +17,7 @@ namespace ScenarioEditor.Models.XmlElements
         private ObservableCollection<Draw> draws = new ObservableCollection<Draw>();
         private ObservableCollection<IAnimation> animations = new ObservableCollection<IAnimation>();
         private Se se;
+        private BackgroundVoice backgroundVoice;
 
         public Scenario(XElement scenarioElement)
         {
@@ -44,6 +45,8 @@ namespace ScenarioEditor.Models.XmlElements
         public Text Text { get; set; }
 
         public Se Se { get => se; set => SetProperty(ref se, value); }
+
+        public BackgroundVoice BackgroundVoice { get => backgroundVoice; set => SetProperty(ref backgroundVoice, value); }
 
         public ObservableCollection<Image> Images { get => images; set => SetProperty(ref images, value); }
 
@@ -120,6 +123,11 @@ namespace ScenarioEditor.Models.XmlElements
             if (Se != null && !Se.IsDefault)
             {
                 sb.AppendLine($"\t{Se}");
+            }
+
+            if (BackgroundVoice != null && !BackgroundVoice.IsDefault)
+            {
+                sb.AppendLine($"\t{BackgroundVoice}");
             }
 
             foreach (var a in Animations)

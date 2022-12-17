@@ -1,3 +1,4 @@
+using System;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
@@ -42,22 +43,30 @@ namespace ScenarioEditor.Models
                     return;
                 }
 
-                if (xmlElement is IAnimation element)
+                switch (xmlElement)
                 {
-                    SelectedItem.Animations.Add(element);
-                    return;
-                }
+                    case IAnimation animation:
+                        SelectedItem.Animations.Add(animation);
+                        break;
 
-                if (xmlElement is Image image)
-                {
-                    SelectedItem.Images.Add(image);
-                    return;
-                }
+                    case Image image:
+                        SelectedItem.Images.Add(image);
+                        break;
 
-                if (xmlElement is Se se)
-                {
-                    SelectedItem.Se = se;
-                    return;
+                    case Draw draw:
+                        SelectedItem.Draws.Add(draw);
+                        break;
+
+                    case Se se:
+                        SelectedItem.Se = se;
+                        break;
+
+                    case BackgroundVoice bgv:
+                        selectedItem.BackgroundVoice = bgv;
+                        break;
+
+                    default:
+                        throw new ArgumentException();
                 }
             }));
 
