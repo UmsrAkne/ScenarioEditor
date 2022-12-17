@@ -12,6 +12,7 @@ namespace ScenarioEditor.Models
     public class ScenarioList : BindableBase
     {
         private Scenario selectedItem;
+        private DelegateCommand<IXmlElement> insertTagCommand;
 
         public ObservableCollection<Scenario> Scenarios { get; set; }
 
@@ -32,6 +33,33 @@ namespace ScenarioEditor.Models
             sb.AppendLine("</root>");
             Clipboard.SetDataObject(sb.ToString());
         });
+
+        public DelegateCommand<IXmlElement> InsertTagCommand =>
+            insertTagCommand ?? (insertTagCommand = new DelegateCommand<IXmlElement>((xmlElement) =>
+            {
+                if (SelectedItem == null)
+                {
+                    return;
+                }
+
+                if (xmlElement is IAnimation element)
+                {
+                    SelectedItem.Animations.Add(element);
+                    return;
+                }
+
+                if (xmlElement is Image image)
+                {
+                    SelectedItem.Images.Add(image);
+                    return;
+                }
+
+                if (xmlElement is Se se)
+                {
+                    SelectedItem.Se = se;
+                    return;
+                }
+            }));
 
         public void Load(XDocument doc)
         {

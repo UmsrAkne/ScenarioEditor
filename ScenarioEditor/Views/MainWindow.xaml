@@ -9,6 +9,7 @@
     xmlns:prism="http://prismlibrary.com/"
     xmlns:viewModels="clr-namespace:ScenarioEditor.ViewModels"
     xmlns:views="clr-namespace:ScenarioEditor.Views"
+    xmlns:xmlElements="clr-namespace:ScenarioEditor.Models.XmlElements"
     Title="{Binding Title}"
     Width="1200"
     Height="900"
@@ -40,6 +41,45 @@
         <Menu Grid.Row="0">
             <MenuItem Header="File">
                 <MenuItem Command="{Binding ScenarioList.ExportXmlCommand}" Header="XMLをクリップボードにコピー" />
+            </MenuItem>
+
+            <MenuItem Header="Tag(_T)">
+                <MenuItem Header="Animation(_A)">
+
+                    <MenuItem Command="{Binding ScenarioList.InsertTagCommand}" Header="Shake(_S)">
+                        <MenuItem.CommandParameter>
+                            <xmlElements:Shake />
+                        </MenuItem.CommandParameter>
+                    </MenuItem>
+
+                    <MenuItem Command="{Binding ScenarioList.InsertTagCommand}" Header="Bound(_B)">
+                        <MenuItem.CommandParameter>
+                            <xmlElements:Bound />
+                        </MenuItem.CommandParameter>
+                    </MenuItem>
+
+                    <MenuItem Command="{Binding ScenarioList.InsertTagCommand}" Header="Slide(_l)">
+                        <MenuItem.CommandParameter>
+                            <xmlElements:Slide />
+                        </MenuItem.CommandParameter>
+                    </MenuItem>
+
+                    <MenuItem Command="{Binding ScenarioList.InsertTagCommand}" Header="AlphaChanger(_A)">
+                        <MenuItem.CommandParameter>
+                            <xmlElements:AlphaChanger />
+                        </MenuItem.CommandParameter>
+                    </MenuItem>
+
+                    <MenuItem Command="{Binding ScenarioList.InsertTagCommand}" Header="Flash(_F)">
+                        <MenuItem.CommandParameter>
+                            <xmlElements:Flash />
+                        </MenuItem.CommandParameter>
+                    </MenuItem>
+                </MenuItem>
+
+                <MenuItem Header="Image(_I)" />
+                <MenuItem Header="Draw(_D)" />
+                <MenuItem Header="Se(_S)" />
             </MenuItem>
         </Menu>
 
