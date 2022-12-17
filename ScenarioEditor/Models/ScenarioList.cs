@@ -54,6 +54,12 @@ namespace ScenarioEditor.Models
                     return;
                 }
 
+                if (xmlElement is Draw draw)
+                {
+                    SelectedItem.Draws.Add(draw);
+                    return;
+                }
+
                 if (xmlElement is Se se)
                 {
                     SelectedItem.Se = se;
