@@ -138,6 +138,11 @@ namespace ScenarioEditor.Models.XmlElements
                 sb.AppendLine($"\t{a.ToString()}");
             }
 
+            if (Chapter != null && !Chapter.IsDefault)
+            {
+                sb.AppendLine($"\t{Chapter}");
+            }
+
             sb.Append("</scenario>");
             return sb.ToString();
         }

@@ -28,5 +28,10 @@ namespace ScenarioEditor.Models.XmlElements
         public string Name { get => name; set => SetProperty(ref name, value); }
 
         public bool IsDefault => Name == string.Empty;
+
+        public override string ToString()
+        {
+            return !IsDefault ? $"<{ElementName} {nameof(Name).ToLower()}=\"{Name}\" />" : string.Empty;
+        }
     }
 }
