@@ -30,6 +30,7 @@ namespace ScenarioEditor.Models.XmlElements
                     AnimationGenerator.GetAnimation(scenarioElement));
 
             Ignore = scenarioElement.Descendants("ignore").Any();
+            Chapter = new Chapter(scenarioElement);
         }
 
         public Scenario()
@@ -57,6 +58,8 @@ namespace ScenarioEditor.Models.XmlElements
         public List<string> Urls { get; set; }
 
         public bool Ignore { get; set; }
+
+        public Chapter Chapter { get; set; }
 
         private ContentsLoader ContentsLoader { get; set; }
 
