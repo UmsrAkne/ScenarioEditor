@@ -14,7 +14,7 @@ namespace Tests.Models.XmlElements
                 Strength = 10,
                 Duration = 20,
                 Degree = 180,
-                RepeatCount = 3
+                RepeatCount = 3,
             };
 
             Assert.AreEqual(bound.ToString(), "<anime name=\"bound\" strength=\"10\" degree=\"180\" duration=\"20\" repeatCount=\"3\" />");

@@ -16,12 +16,12 @@ namespace Tests.Models.XmlElements
 
             var animations = AnimationGenerator.GetAnimation(XElement.Parse(xmlText));
 
-            Assert.AreEqual(1,animations.Count);
+            Assert.AreEqual(1, animations.Count);
 
             var shake = (Shake)animations[0];
             Assert.AreEqual("shake",shake.Name);
-            Assert.AreEqual(20,shake.Strength);
-            Assert.AreEqual(15,shake.Duration);
+            Assert.AreEqual(20, shake.Strength);
+            Assert.AreEqual(15, shake.Duration);
         }
 
         [Test]

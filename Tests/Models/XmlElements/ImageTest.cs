@@ -57,8 +57,7 @@ namespace Tests.Models.XmlElements
 
             Assert.AreEqual(
                 "<image a=\"imageA\" b=\"imageB\" c=\"imageC\" d=\"imageD\" scale=\"1.5\" x=\"100\" y=\"200\" target=\"front\" />",
-                new Image(new XElement(XElement.Parse(xmlText))).ToString()
-            );
+                new Image(new XElement(XElement.Parse(xmlText))).ToString());
 
             // Image の情報が無い場合は 空文字が返る
             Assert.AreEqual(string.Empty, new Image(XElement.Parse("<scenario></scenario>")).ToString());
@@ -80,13 +79,13 @@ namespace Tests.Models.XmlElements
             };
 
             image.ChangeImageToNextCommand.Execute("A");
-            Assert.AreEqual("A0102", image.A );
+            Assert.AreEqual("A0102", image.A);
 
             image.ChangeImageToNextCommand.Execute("A");
-            Assert.AreEqual("A0103", image.A );
+            Assert.AreEqual("A0103", image.A);
 
             image.ChangeImageToNextCommand.Execute("A");
-            Assert.AreEqual("A0101", image.A );
+            Assert.AreEqual("A0101", image.A);
         }
 
         [Test]
@@ -104,13 +103,13 @@ namespace Tests.Models.XmlElements
             };
 
             image.ChangeImageToNextCommand.Execute("A");
-            Assert.AreEqual("A0101", image.A );
+            Assert.AreEqual("A0101", image.A);
 
             image.ChangeImageToNextCommand.Execute("A");
-            Assert.AreEqual("A0102", image.A );
+            Assert.AreEqual("A0102", image.A);
 
             image.ChangeImageToNextCommand.Execute("A");
-            Assert.AreEqual("A0103", image.A );
+            Assert.AreEqual("A0103", image.A);
         }
 
         [Test]
@@ -136,16 +135,16 @@ namespace Tests.Models.XmlElements
             };
 
             image.ChangeImageToNextCommand.Execute("A");
-            Assert.AreEqual("A0102", image.A );
+            Assert.AreEqual("A0102", image.A);
 
             image.ChangeImageToNextCommand.Execute("B");
-            Assert.AreEqual("B0102", image.B );
+            Assert.AreEqual("B0102", image.B);
 
             image.ChangeImageToNextCommand.Execute("C");
-            Assert.AreEqual("C0102", image.C );
+            Assert.AreEqual("C0102", image.C);
 
             image.ChangeImageToNextCommand.Execute("D");
-            Assert.AreEqual("D0102", image.D );
+            Assert.AreEqual("D0102", image.D);
         }
     }
 }
