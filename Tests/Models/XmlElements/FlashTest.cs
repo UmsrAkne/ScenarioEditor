@@ -13,7 +13,7 @@ namespace Tests.Models.XmlElements
             {
                 Cycle = 10,
                 Duration = 20,
-                RepeatCount = 3
+                RepeatCount = 3,
             };
 
             Assert.AreEqual(flash.ToString(), "<anime name=\"flash\" cycle=\"10\" duration=\"20\" repeatCount=\"3\" />");

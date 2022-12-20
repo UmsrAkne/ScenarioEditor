@@ -77,7 +77,7 @@ namespace Tests.Models
 
             loader.LoadVoiceFileList();
             Assert.NotNull(loader.VoiceFileInfos);
-            Assert.AreEqual(3,loader.VoiceFileInfos.Count, "期待通りなら、.wav 以外の3ファイルが認識される");
+            Assert.AreEqual(3, loader.VoiceFileInfos.Count, "期待通りなら、.wav 以外の3ファイルが認識される");
 
             File.Delete($@"{voiceDirectoryPath}\01.wav");
             File.Delete($@"{voiceDirectoryPath}\02.ogg");

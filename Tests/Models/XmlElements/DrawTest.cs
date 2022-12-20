@@ -51,8 +51,7 @@ namespace Tests.Models.XmlElements
 
             Assert.AreEqual(
                 "<draw a=\"imageA\" b=\"imageB\" c=\"imageC\" d=\"imageD\" target=\"front\" />",
-                new Draw(new XElement(XElement.Parse(xmlText))).ToString()
-            );
+                new Draw(new XElement(XElement.Parse(xmlText))).ToString());
 
             // Draw の情報が無い場合は 空文字が返る
             Assert.AreEqual(string.Empty, new Draw(XElement.Parse("<scenario></scenario>")).ToString());

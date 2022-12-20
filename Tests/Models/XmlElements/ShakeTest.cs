@@ -12,7 +12,7 @@ namespace Tests.Models.XmlElements
             var shake = new Shake
             {
                 Strength = 90,
-                Duration = 120
+                Duration = 120,
             };
 
             Assert.AreEqual(shake.ToString(), "<anime name=\"shake\" strength=\"90\" duration=\"120\" />");

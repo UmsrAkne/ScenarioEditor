@@ -13,7 +13,7 @@ namespace Tests.Models.XmlElements
             var bgv = new BackgroundVoice
             {
                 Names = "fileA, fileB, fileC",
-                Channel = 2
+                Channel = 2,
             };
 
             Assert.AreEqual("<backgroundVoice names=\"fileA, fileB, fileC\" channel=\"2\" />", bgv.ToString());
@@ -23,7 +23,7 @@ namespace Tests.Models.XmlElements
         public void NameList生成テスト()
         {
             var bgv = new BackgroundVoice { Names = "fileA, fileB, fileC", };
-            CollectionAssert.AreEqual(new List<string>(){"fileA", "fileB", "fileC"}, bgv.NameList);
+            CollectionAssert.AreEqual(new List<string>() { "fileA", "fileB", "fileC" }, bgv.NameList);
         }
     }
 }

@@ -41,8 +41,7 @@ namespace Tests.Models.XmlElements
 
             Assert.AreEqual(
                 "<scenario><voice fileName=\"testFile\" /><text str=\"testText\" /></scenario>",
-                scenario.ToString()
-                );
+                scenario.ToString());
         }
 
         [Test]
@@ -58,8 +57,7 @@ namespace Tests.Models.XmlElements
 
             Assert.AreEqual(
                 "<scenario><ignore /><voice fileName=\"testFile\" /><text str=\"testText\" /></scenario>",
-                scenario.ToString()
-                );
+                scenario.ToString());
         }
 
         [Test]
@@ -78,8 +76,7 @@ namespace Tests.Models.XmlElements
                 "<scenario><voice fileName=\"testFile\" /><text str=\"testText\" />\r\n" +
                 "\t<image a=\"imageA\" b=\"\" c=\"\" d=\"\" scale=\"1\" x=\"0\" y=\"0\" target=\"main\" />\r\n" +
                 "</scenario>",
-                scenario.ToString()
-                );
+                scenario.ToString());
         }
 
         [Test]
@@ -103,7 +100,7 @@ namespace Tests.Models.XmlElements
             {
                 Cycle = 5,
                 Duration = 10,
-                RepeatCount = 3
+                RepeatCount = 3,
             });
 
             Assert.AreEqual(
@@ -112,8 +109,7 @@ namespace Tests.Models.XmlElements
                     "\t<anime name=\"shake\" strength=\"10\" duration=\"5\" />\r\n" +
                     "\t<anime name=\"flash\" cycle=\"5\" duration=\"10\" repeatCount=\"3\" />\r\n" +
                 "</scenario>",
-                scenario.ToString()
-                );
+                scenario.ToString());
         }
 
         [Test]
@@ -141,8 +137,7 @@ namespace Tests.Models.XmlElements
                     "\t<anime name=\"flash\" cycle=\"5\" duration=\"10\" repeatCount=\"0\" />\r\n" +
                     "\t<chapter name=\"chapter1\" />\r\n" +
                 "</scenario>",
-                scenario.ToString()
-                );
+                scenario.ToString());
         }
     }
 }
