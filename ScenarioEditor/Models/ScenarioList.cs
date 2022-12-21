@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
@@ -14,6 +14,7 @@ namespace ScenarioEditor.Models
     {
         private Scenario selectedItem;
         private DelegateCommand<IXmlElement> insertTagCommand;
+        private DelegateCommand toggleIgnoreCommand;
 
         public ObservableCollection<Scenario> Scenarios { get; set; }
 
@@ -67,6 +68,15 @@ namespace ScenarioEditor.Models
 
                     default:
                         throw new ArgumentException();
+                }
+            }));
+
+        public DelegateCommand ToggleIgnoreCommand =>
+            toggleIgnoreCommand ?? (toggleIgnoreCommand = new DelegateCommand(() =>
+            {
+                if (SelectedItem != null)
+                {
+                    SelectedItem.Ignore = !SelectedItem.Ignore;
                 }
             }));
 

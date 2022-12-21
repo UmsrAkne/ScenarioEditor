@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Collections.ObjectModel;
 using System.IO;
@@ -18,6 +18,7 @@ namespace ScenarioEditor.Models.XmlElements
         private ObservableCollection<IAnimation> animations = new ObservableCollection<IAnimation>();
         private Se se;
         private BackgroundVoice backgroundVoice;
+        private bool ignore;
 
         public Scenario(XElement scenarioElement)
         {
@@ -57,7 +58,7 @@ namespace ScenarioEditor.Models.XmlElements
 
         public List<string> Urls { get; set; }
 
-        public bool Ignore { get; set; }
+        public bool Ignore { get => ignore; set => SetProperty(ref ignore, value); }
 
         public Chapter Chapter { get; set; }
 

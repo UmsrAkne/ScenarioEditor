@@ -1,10 +1,10 @@
-using NUnit.Framework;
+﻿using NUnit.Framework;
 using ScenarioEditor.Models.XmlElements;
 
 namespace Tests.Models.XmlElements
 {
     [TestFixture]
-    public class TestBound
+    public class BoundTest
     {
         [Test]
         public void ToStringのテスト()

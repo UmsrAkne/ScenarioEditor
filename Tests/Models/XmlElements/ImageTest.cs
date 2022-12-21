@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.IO;
 using System.Xml.Linq;
 using NUnit.Framework;
@@ -113,7 +113,7 @@ namespace Tests.Models.XmlElements
         }
 
         [Test]
-        public void ChangeImageCommandのテストABCD()
+        public void ChangeImageCommandのテストabcd()
         {
             var image = new Image
             {

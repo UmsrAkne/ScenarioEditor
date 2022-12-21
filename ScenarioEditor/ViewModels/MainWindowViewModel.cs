@@ -9,6 +9,7 @@ namespace ScenarioEditor.ViewModels
         private string title = "Prism Application";
         private ScenarioList scenarioList;
 
+        // ReSharper disable once EmptyConstructor
         public MainWindowViewModel()
         {
         }

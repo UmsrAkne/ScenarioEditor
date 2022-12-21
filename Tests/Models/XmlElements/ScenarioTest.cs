@@ -1,4 +1,4 @@
-using System.Linq;
+﻿using System.Linq;
 using System.Xml.Linq;
 using NUnit.Framework;
 using ScenarioEditor.Models.XmlElements;
@@ -27,7 +27,7 @@ namespace Tests.Models.XmlElements
 
             Assert.NotNull(scenario.Voice);
             Assert.NotNull(scenario.Text);
-            Assert.AreEqual(1,scenario.Images.Count);
+            Assert.AreEqual(1, scenario.Images.Count);
         }
 
         [Test]
