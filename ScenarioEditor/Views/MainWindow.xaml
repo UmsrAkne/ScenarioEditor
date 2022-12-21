@@ -101,6 +101,8 @@
                     </MenuItem.CommandParameter>
                 </MenuItem>
 
+                <MenuItem Command="{Binding ScenarioList.ToggleIgnoreCommand}" Header="Ignore on / off" />
+
             </MenuItem>
         </Menu>
 
