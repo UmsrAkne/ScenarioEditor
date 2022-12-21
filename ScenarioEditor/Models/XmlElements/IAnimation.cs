@@ -1,4 +1,4 @@
-namespace ScenarioEditor.Models.XmlElements
+﻿namespace ScenarioEditor.Models.XmlElements
 {
     public interface IAnimation : IXmlElement
     {

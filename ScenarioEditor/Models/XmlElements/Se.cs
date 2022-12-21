@@ -1,4 +1,4 @@
-using System.Xml.Linq;
+﻿using System.Xml.Linq;
 using Prism.Mvvm;
 
 namespace ScenarioEditor.Models.XmlElements
