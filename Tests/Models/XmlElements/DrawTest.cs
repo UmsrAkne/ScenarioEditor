@@ -10,7 +10,7 @@ namespace Tests.Models.XmlElements
         [Test]
         public void 引数なしコンストラクタのテスト()
         {
-            var _ = new Draw();
+            var draw = new Draw();
         }
 
         [Test]

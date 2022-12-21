@@ -11,7 +11,7 @@ namespace ScenarioEditor.Models.XmlElements
 
         public string ElementName => "anime";
 
-        public bool IsDefault { get; }
+        public bool IsDefault => false;
 
         public string Name { get; set; } = "slide";
 

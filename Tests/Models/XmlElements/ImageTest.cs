@@ -113,7 +113,7 @@ namespace Tests.Models.XmlElements
         }
 
         [Test]
-        public void ChangeImageCommandのテストABCD()
+        public void ChangeImageCommandのテストabcd()
         {
             var image = new Image
             {
